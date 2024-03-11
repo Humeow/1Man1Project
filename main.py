@@ -13,6 +13,9 @@ app = FastAPI()
 for file in os.listdir("./router"):
     if len(file) >= 4:
         if file[-3:] == ".py":
+            if file[0] == "#":
+                continue
+
             exec(f"from router import {file[:-3]}\n"
                  f"app.include_router({file[:-3]}.router)", globals())
 ##### router sync finished ######

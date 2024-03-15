@@ -38,16 +38,3 @@ async def write_output(request: Request, path_name: str):
         return {"success": False}
 
     return {"success": True, "data": result}
-
-
-
-@router.api_route("/{path_name:path}", methods=["GET"])  # 위키 글 화면
-async def write_output_likewiki(request: Request, path_name: str):
-    with Session(engine) as session:
-        statement = select(WritingData).where(WritingData.path == path_name)
-        result = session.exec(statement).first()
-
-    if result is None:
-        return {"success": False}
-
-    return {"success": True, "data": result}

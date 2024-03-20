@@ -23,7 +23,10 @@ import glovar
 
 load_dotenv()
 
-app = FastAPI()
+if os.environ.get('IS_DEVELOP'):
+    app = FastAPI()
+else:
+    app = FastAPI(docs_url=None, redoc_url=None)
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")

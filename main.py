@@ -17,6 +17,7 @@ from sqlmodel import Session, select
 from model.model import *
 from db.db import engine
 from commands.jwt_handler import classTokenizer
+from commands.mail_handler import MailAuth
 
 import glovar
 
@@ -31,6 +32,8 @@ templates = Jinja2Templates(directory="templates")
 templates.env.globals["STATIC_URL"] = "/static"
 
 glovar.tokenizer = classTokenizer()
+
+glovar.MAILAUTH = MailAuth()
 
 # @app.get("/")
 # async def main(request: Request):

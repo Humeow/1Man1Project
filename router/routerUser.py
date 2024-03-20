@@ -72,8 +72,20 @@ async def user_logout(request: Request, response: Response):
     return {'success': True}  # TODO: 토큰 쿠키 삭제, 로그아웃
 
 
-@router.post("/register")  # needs op's allowance
-async def user_register(request: Request, response: Response, user_data: requestUserData):
+@router.post("/register_request")  # needs op's allowance
+async def user_register_code(request: Request, response: Response, email: str):
+    request_id = await glovar.MAILAUTH.request(email)
+    return request_id
+
+
+@router.post("/register")
+async def user_register(request: Request, response: Response, request_id: int, auth_key: int, user_data: requestUserData):
+    result = await glovar.MAILAUTH.auth(request_id, auth_key)
+
+    if not result['success']:
+        return result
+
+
     with Session(engine) as session:
         session.add(user_data)
         session.commit()

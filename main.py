@@ -27,6 +27,7 @@ if os.environ.get('IS_DEVELOP'):
     app = FastAPI(docs_url='/docs', openapi_url='/openapi.json')  # TODO: Temp, erase parameter.
 else:
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+    app = FastAPI(docs_url='/coodi/api/docs', redoc_url=None, openapi_url=None)
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")

@@ -25,7 +25,7 @@ class WritingData(SQLModel, table=True):
     option: int  # 0: None, 1: 분류
     version: int
     writer: str
-    path: str
+    path: str # ~/~/~
     text: str
     recent_edit: str  # recent edited date
 

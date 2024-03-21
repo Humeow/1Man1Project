@@ -20,3 +20,5 @@ uvicorn==0.24.0.post1
 PyJWT==2.8.0
 python_dotenv==1.0.1
 bs4==0.0.2
+
+openapi_core==0.19.0

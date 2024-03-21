@@ -24,9 +24,12 @@ import glovar
 load_dotenv()
 
 if os.environ.get('IS_DEVELOP'):
-    app = FastAPI()
+    app = FastAPI(redoc_url=None, openapi_url=None)  # TODO: Temp, erase parameter.
 else:
-    app = FastAPI(docs_url=None, redoc_url=None)
+    app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
+
+# app = FastAPI(docs_url='/api/coodi/docs', openapi_url='/api/coodi/openapi.json')
+#app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
@@ -42,7 +45,8 @@ glovar.MAILAUTH = MailAuth()
 # async def main(request: Request):
 #     return {"message": "Hello!"}
 
-@app.get("/", response_class=HTMLResponse)
+
+@app.get("/", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
 def index(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 

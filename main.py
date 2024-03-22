@@ -50,6 +50,10 @@ glovar.MAILAUTH = MailAuth()
 def index(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 
+@app.get("/login.html", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
+def index(request: Request):
+    return templates.TemplateResponse("login.html", context={"request": request})
+
 
 #===== router sync start =====#
 for file in os.listdir("./router"):

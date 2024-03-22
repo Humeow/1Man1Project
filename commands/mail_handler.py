@@ -60,7 +60,7 @@ class MailAuth(Mail):  # 메일 인증 클래스, 메일 클래스를 상속 받
 
                     break
 
-        with open("static/email_register.html", "r", encoding="utf-8") as html:  # 인증 메일 템플릿 불러오기
+        with open("templates/email_register.html", "r", encoding="utf-8") as html:  # 인증 메일 템플릿 불러오기
             message = html.read()
 
         soup = bs4.BeautifulSoup(message, "html.parser")  # 템플릿에 랜덤한 6자리 숫자 삽입

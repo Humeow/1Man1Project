@@ -6,6 +6,11 @@ def edit_format(test):
     m = p.findall(test)
     print(m)
 
-edit_format("웰컴 [[ 투더 [[뭉탱이]] !! ]] 월드~")
+edit_format("웰컴 [[ 투더 [[이미지|뭉탱이]] !! ]] 월드~")
 
 # result: ['[[뭉탱이]]']
+
+"""
+Type 1 = URL link
+Type 2:
+"""

@@ -9,6 +9,7 @@ from fastapi.responses import HTMLResponse
 
 from dotenv import load_dotenv
 import os
+import random
 
 from db.db import create_db_and_tables, engine
 
@@ -24,7 +25,7 @@ import glovar
 load_dotenv()
 
 if os.environ.get('IS_DEVELOP'):
-    app = FastAPI(docs_url='/docs', openapi_url='/openapi.json')  # TODO: Temp, erase parameter.
+    app = FastAPI()
 else:
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 

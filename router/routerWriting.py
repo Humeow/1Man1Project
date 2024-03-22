@@ -1,18 +1,25 @@
-from fastapi import APIRouter, Request, Form
+from fastapi import APIRouter, Request, Response, Form, Cookie
 from sqlmodel import Session, select
 
 from model.model import *
 from db.db import engine
 
+from commands.auth_handler import *
+
 router = APIRouter()
 
 @router.post("/write/input")
-async def write_input(request: Request, writing_data: WritingData):
+async def write_input(request: Request, response: Response, writing_data: WritingData, access: Optional[str] = Cookie(None)):
     from datetime import datetime
     """
     :param writing_data:
         Need param: path(~/~/~), text
     """
+
+    is_vaild = await user_check(access)
+    if not is_vaild['success']:
+        return is_vaild
+
 
     if writing_data.id is not None:
         del writing_data.id

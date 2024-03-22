@@ -5,6 +5,9 @@ import glovar
 from model.model import *
 from db.db import engine
 
+from commands.jwt_handler import tokenizer
+from commands.hash_handler import hasher
+
 router = APIRouter()
 
 
@@ -32,8 +35,31 @@ router = APIRouter()
 #
 #     return {"success": True, "data": result}
 
+# @router.post("/login")
+# async def user_login(request: Request, response: Response, email: str = Form(), password: str = Form()):
+#     with Session(engine) as session:
+#         statement = select(UserData).where(UserData.email == email)
+#         result = session.exec(statement).first()
+#
+#     if result is None:
+#         return {"success": False, 'msg': 'no_user'}
+#
+#     if result.password == password:
+#         access_token = glovar.tokenizer.create_access_token(email)
+#         refresh_token = glovar.tokenizer.create_refresh_token(email)
+#
+#         response.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
+#         response.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
+#
+#         return {"success": True, 'access': access_token[0], 'refresh': refresh_token[0]}
+#
+#     else:
+#         return {"success": False, 'msg': 'pwd_fail'}
+
 @router.post("/login")
-async def user_login(request: Request, response: Response, email: str = Form(), password: str = Form()):
+async def user_login(request: Request, response: Response):  # TODO: HTTPS ssl 적용
+    email = 'coodi60419@gmail.com'
+    password = 'baka'
     with Session(engine) as session:
         statement = select(UserData).where(UserData.email == email)
         result = session.exec(statement).first()
@@ -41,9 +67,9 @@ async def user_login(request: Request, response: Response, email: str = Form(), 
     if result is None:
         return {"success": False, 'msg': 'no_user'}
 
-    if result.password == password:
-        access_token = glovar.tokenizer.create_access_token(email)
-        refresh_token = glovar.tokenizer.create_refresh_token(email)
+    if hasher.hash_compare(password, result.password):
+        access_token = tokenizer.create_access_token(email)
+        refresh_token = tokenizer.create_refresh_token(email)
 
         response.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
         response.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
@@ -56,7 +82,7 @@ async def user_login(request: Request, response: Response, email: str = Form(), 
 
 @router.post("/refresh")
 async def user_token_refresh(request: Request, response: Response, refresh: Optional[str] = Cookie(None)):
-    access_token = glovar.tokenizer.use_refresh_token(refresh)  # TODO: refresh token으로 access 갱신 만들기
+    access_token = tokenizer.use_refresh_token(refresh)  # TODO: refresh token으로 access 갱신 만들기
 
     if access_token['success']:
         response.set_cookie(key='access', value=access_token['access'][0], expires=access_token['access'][1])
@@ -85,6 +111,8 @@ async def user_register(request: Request, response: Response, request_id: int, a
     if not result['success']:
         return result
 
+    requestUserData.password = hasher.hash_make(requestUserData.password)
+
 
     with Session(engine) as session:
         session.add(user_data)
@@ -92,3 +120,8 @@ async def user_register(request: Request, response: Response, request_id: int, a
         session.refresh(user_data)
 
     return {"success": True}
+
+
+@router.post("/hash")  # TEMPORARY
+async def hash_router(request: Request, response: Response, text: str):
+    return hasher.hash_make(text)

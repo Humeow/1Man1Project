@@ -3,13 +3,16 @@ import datetime
 import os
 import random
 
+from dotenv import load_dotenv, find_dotenv
 
 class classTokenizer:
-
+    load_dotenv(find_dotenv())
     def __init__(self):
+
         self.SECRET_PRE = os.environ.get('SECRET_PRE')
-        letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=!@#$%^&*()_+'
-        self.token = ''.join(random.sample(letters, 15))
+        self.token = ''.join(random.sample('abcdefghijklmnopqrstuvwxyz'
+                                           'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                                           '1234567890-=!@#$%^&*()_+', 15))
         self.access_expires = datetime.timedelta(hours=2)
         self.refresh_expires = datetime.timedelta(days=14)
 
@@ -46,13 +49,14 @@ class classTokenizer:
         try:
             result = jwt.decode(token, self.SECRET_PRE + self.token, algorithms='HS256')
         except jwt.ExpiredSignatureError:
-            return {'success': False}
+            return {'success': False, 'msg': 'expired'}
         except jwt.InvalidTokenError:
-            return {'success': False}
+            return {'success': False, 'msg': 'invalid'}
         else:
-            print(result)
             return {'success': True, 'token': result}
 
+
+tokenizer = classTokenizer()
 
 if __name__ == '__main__':
     from dotenv import load_dotenv, find_dotenv

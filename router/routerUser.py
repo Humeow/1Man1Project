@@ -82,7 +82,7 @@ async def user_login(request: Request, response: Response):  # TODO: HTTPS ssl �
 
 @router.post("/refresh")
 async def user_token_refresh(request: Request, response: Response, refresh: Optional[str] = Cookie(None)):
-    access_token = tokenizer.use_refresh_token(refresh)  # TODO: refresh token으로 access 갱신 만들기
+    access_token = tokenizer.use_refresh_token(refresh)
 
     if access_token['success']:
         response.set_cookie(key='access', value=access_token['access'][0], expires=access_token['access'][1])
@@ -122,6 +122,10 @@ async def user_register(request: Request, response: Response, request_id: int, a
     return {"success": True}
 
 
-@router.post("/hash")  # TEMPORARY
-async def hash_router(request: Request, response: Response, text: str):
-    return hasher.hash_make(text)
+# @router.post("/hash")  # TEMPORARY
+# async def hash_router(request: Request, response: Response, text: str):
+#     return hasher.hash_make(text)
+
+# @router.post("/checktoken")  # TEMPORARY
+# async def check_token(request: Request, response: Response, token: str):
+#     return tokenizer.validate_token(token)['success']

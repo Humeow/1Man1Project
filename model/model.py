@@ -23,10 +23,11 @@ class requestUserData(SQLModel, table=True):
 class WritingData(SQLModel, table=True):
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
     option: int  # 0: None, 1: 분류
+    category: str
     version: int
     writer: str
     path: str # ~/~/~
-    text: str
+    content: str
     recent_edit: str  # recent edited date
 
 
@@ -43,7 +44,7 @@ class ArchiveWriting(SQLModel, table=False):  # 아직 미구현
     version: int
     writer: str
     path: str
-    text: str
+    content: str
     creation: str
 
 

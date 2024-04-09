@@ -100,5 +100,4 @@ class MailAuth(Mail):  # 메일 인증 클래스, 메일 클래스를 상속 받
                 return False, "failed"
 
 
-if __name__ == '__main__':
-    MAILAUTH = MailAuth()  # 이메일 로그인
+mail_author = MailAuth()

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Request, Form, Response, Cookie
 from sqlmodel import Session, select
 
-import glovar
 from model.model import *
 from db.db import engine
 
+from commands.mail_handler import mail_author
 from commands.jwt_handler import tokenizer
 from commands.hash_handler import hasher
 
@@ -100,13 +100,13 @@ async def user_logout(request: Request, response: Response):
 
 @router.post("/register_request")  # needs op's allowance
 async def user_register_code(request: Request, response: Response, email: str):
-    request_id = await glovar.MAILAUTH.request(email)
+    request_id = await mail_author.request(email)
     return request_id
 
 
 @router.post("/register")
 async def user_register(request: Request, response: Response, request_id: int, auth_key: int, user_data: requestUserData):
-    result = await glovar.MAILAUTH.auth(request_id, auth_key)
+    result = await mail_author.auth(request_id, auth_key)
 
     if not result['success']:
         return result

@@ -60,10 +60,15 @@ glovar.tokenizer = classTokenizer()
 def index(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 
+
 @app.get("/login", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
 def index(request: Request):
     return templates.TemplateResponse("login.html", context={"request": request})
 
+
+@app.get("/editscreen", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
+def index(request: Request):
+    return templates.TemplateResponse("editscreen.html", context={"request": request})
 
 #===== router sync start =====#
 for file in os.listdir("./router"):

@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Request, Form, Response, Cookie
+from fastapi import APIRouter, Request, Form, Response, Cookie, status
+from fastapi.responses import HTMLResponse, RedirectResponse
 from sqlmodel import Session, select
 
 from model.model import *
@@ -7,6 +8,8 @@ from db.db import engine
 from commands.mail_handler import mail_author
 from commands.jwt_handler import tokenizer
 from commands.hash_handler import hasher
+
+from typing import Annotated
 
 router = APIRouter()
 
@@ -56,10 +59,15 @@ router = APIRouter()
 #     else:
 #         return {"success": False, 'msg': 'pwd_fail'}
 
-@router.post("/login")
-async def user_login(request: Request, response: Response):  # TODO: HTTPS ssl 적용
-    email = 'coodi60419@gmail.com'
-    password = 'baka'
+@router.post("/login", tags=['email, password'])
+# async def user_login(request: Request, response: Response, email: str = Form(), password: str = Form()):  # TODO: HTTPS ssl 적용
+async def user_login(request: Request, response: Response, user: UserData):  # TODO: HTTPS ssl 적용
+    # email = 'coodi60419@gmail.com'
+    # password = 'baka'
+
+    email = user.email
+    password = user.password
+
     with Session(engine) as session:
         statement = select(UserData).where(UserData.email == email)
         result = session.exec(statement).first()
@@ -71,12 +79,15 @@ async def user_login(request: Request, response: Response):  # TODO: HTTPS ssl �
         access_token = tokenizer.create_access_token(email)
         refresh_token = tokenizer.create_refresh_token(email)
 
-        response.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
-        response.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
+        redirect = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
 
-        return {"success": True, 'access': access_token[0], 'refresh': refresh_token[0]}
+        redirect.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
+        redirect.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
+
+        return redirect
 
     else:
+
         return {"success": False, 'msg': 'pwd_fail'}
 
 
@@ -95,7 +106,7 @@ async def user_token_refresh(request: Request, response: Response, refresh: Opti
 async def user_logout(request: Request, response: Response):
     response.delete_cookie(key='refresh')
     response.delete_cookie(key='access')
-    return {'success': True}  # TODO: 토큰 쿠키 삭제, 로그아웃
+    return {'success': True}
 
 
 @router.post("/register_request")  # needs op's allowance
@@ -105,7 +116,8 @@ async def user_register_code(request: Request, response: Response, email: str):
 
 
 @router.post("/register")
-async def user_register(request: Request, response: Response, request_id: int, auth_key: int, user_data: requestUserData):
+async def user_register(request: Request, response: Response, request_id: int, auth_key: int,
+                        user_data: requestUserData):
     result = await mail_author.auth(request_id, auth_key)
 
     if not result['success']:
@@ -113,14 +125,12 @@ async def user_register(request: Request, response: Response, request_id: int, a
 
     requestUserData.password = hasher.hash_make(requestUserData.password)
 
-
     with Session(engine) as session:
         session.add(user_data)
         session.commit()
         session.refresh(user_data)
 
     return {"success": True}
-
 
 # @router.post("/hash")  # TEMPORARY
 # async def hash_router(request: Request, response: Response, text: str):

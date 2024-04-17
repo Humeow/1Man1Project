@@ -17,14 +17,12 @@ from db.db import create_db_and_tables, engine
 from sqlmodel import Session, select
 
 from model.model import *
-from db.db import engine
 from commands.jwt_handler import classTokenizer
 from commands.mail_handler import MailAuth
 
 import glovar
 
 load_dotenv()
-
 if os.environ.get('IS_DEVELOP'):
     app = FastAPI()
 else:
@@ -56,17 +54,17 @@ glovar.tokenizer = classTokenizer()
 #     return {"message": "Hello!"}
 
 
-@app.get("/", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
+@app.get("/", response_class=HTMLResponse)
 def index(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 
 
-@app.get("/login", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
+@app.get("/login", response_class=HTMLResponse)
 def index(request: Request):
     return templates.TemplateResponse("login.html", context={"request": request})
 
 
-@app.get("/editscreen", response_class=HTMLResponse)  # TODO: 서버 DB랑 연결할 수 있게
+@app.get("/editscreen", response_class=HTMLResponse)
 def index(request: Request):
     return templates.TemplateResponse("editscreen.html", context={"request": request})
 

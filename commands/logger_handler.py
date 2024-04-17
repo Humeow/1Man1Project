@@ -66,3 +66,4 @@ class SafeRotatingFileHandler(TimedRotatingFileHandler):  # 참고 : https://ko.
                     addend = 3600
                 new_rollover_at += addend
         self.rolloverAt = new_rollover_at
+

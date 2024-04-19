@@ -37,7 +37,7 @@ async def user_information(request: Request, response: Response,
 
 
 @router.post("/login", tags=['email, password'])
-async def user_login(request: Request, user: UserData):  # TODO: HTTPS ssl 적용
+async def user_login(request: Request, response: Response, user: UserData):  # TODO: HTTPS ssl 적용
     email = user.email
     password = user.password
 
@@ -52,12 +52,10 @@ async def user_login(request: Request, user: UserData):  # TODO: HTTPS ssl 적�
         access_token = tokenizer.create_access_token(email)
         refresh_token = tokenizer.create_refresh_token(email)
 
-        response = Response()
-
         response.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
         response.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
 
-        return response
+        return {'success': True}
 
     else:
 

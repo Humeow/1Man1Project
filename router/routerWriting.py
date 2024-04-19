@@ -92,7 +92,7 @@ async def main_write_output(request: Request, response: Response, hb: bool = Fal
 async def write_output(request: Request, response: Response, path: str, hb: bool = False,
                        access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     path = path.strip()
-    fail_data['content'] = fail_data['content'].replace('[[새문서]]', f'[[L:/edit/{path}|새 문서 작성하기]]')
+    fail_data['content'] = fail_data['content'].replace('[[새문서]]', f'[[L:/{path}|새 문서 작성하기]]')
 
     is_access_valid = tokenizer.validate_token(access, refresh)
 

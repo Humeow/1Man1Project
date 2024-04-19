@@ -52,12 +52,10 @@ async def user_login(request: Request, response: Response, user: UserData):  # T
         access_token = tokenizer.create_access_token(email)
         refresh_token = tokenizer.create_refresh_token(email)
 
-        redirect = RedirectResponse(url="/", status_code=status.HTTP_302_FOUND)
+        response.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
+        response.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
 
-        redirect.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
-        redirect.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
-
-        return redirect
+        return {"success": True}
 
     else:
 

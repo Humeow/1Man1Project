@@ -4389,9 +4389,9 @@ var app = (function () {
     			span1 = element("span");
     			t4 = text(t4_value);
     			attr_dev(span0, "class", "text_content svelte-c6mash");
-    			add_location(span0, file$b, 28, 16, 917);
+    			add_location(span0, file$b, 28, 16, 944);
     			attr_dev(span1, "class", "text_content svelte-c6mash");
-    			add_location(span1, file$b, 91, 16, 5154);
+    			add_location(span1, file$b, 91, 16, 5181);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span0, anchor);
@@ -4559,9 +4559,9 @@ var app = (function () {
     			a = element("a");
     			img = element("img");
     			attr_dev(img, "href", /*splitMatchContent*/ ctx[9][1]);
-    			add_location(img, file$b, 44, 52, 2016);
+    			add_location(img, file$b, 44, 52, 2043);
     			attr_dev(a, "class", "text_content svelte-c6mash");
-    			add_location(a, file$b, 44, 28, 1992);
+    			add_location(a, file$b, 44, 28, 2019);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -4700,11 +4700,11 @@ var app = (function () {
     			t2 = text("[");
     			t3 = text(t3_value);
     			t4 = text("]");
-    			add_location(sup, file$b, 54, 166, 2937);
+    			add_location(sup, file$b, 54, 166, 2964);
     			attr_dev(a, "href", "#bottom_footnote_" + /*splitFootnote*/ ctx[11][1]);
     			attr_dev(a, "id", a_id_value = "" + (/*textFootnote*/ ctx[13][0] + "-" + (/*textFootnote*/ ctx[13][2] - /*countFootnote*/ ctx[14])));
     			attr_dev(a, "class", "footnote text_content svelte-c6mash");
-    			add_location(a, file$b, 54, 32, 2803);
+    			add_location(a, file$b, 54, 32, 2830);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -4757,10 +4757,10 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 50, 108, 2494);
+    			add_location(sup, file$b, 50, 108, 2521);
     			attr_dev(a, "href", a_href_value = "#bottom_footnote_" + /*numberParagraph*/ ctx[12]);
     			attr_dev(a, "class", "footnote text_content svelte-c6mash");
-    			add_location(a, file$b, 50, 32, 2418);
+    			add_location(a, file$b, 50, 32, 2445);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -4804,7 +4804,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-c6mash");
-    			add_location(a, file$b, 41, 32, 1799);
+    			add_location(a, file$b, 41, 32, 1826);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -4839,7 +4839,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-c6mash");
-    			add_location(a, file$b, 39, 32, 1638);
+    			add_location(a, file$b, 39, 32, 1665);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -4899,7 +4899,7 @@ var app = (function () {
     			span = element("span");
     			t1 = text(t1_value);
     			attr_dev(span, "class", "text_content svelte-c6mash");
-    			add_location(span, file$b, 59, 20, 3087);
+    			add_location(span, file$b, 59, 20, 3114);
     		},
     		m: function mount(target, anchor) {
     			if (~current_block_type_index) {
@@ -5006,9 +5006,9 @@ var app = (function () {
     			a = element("a");
     			img = element("img");
     			attr_dev(img, "href", /*splitMatchContent*/ ctx[9][1]);
-    			add_location(img, file$b, 77, 48, 4159);
+    			add_location(img, file$b, 77, 48, 4186);
     			attr_dev(a, "class", "text_content svelte-c6mash");
-    			add_location(a, file$b, 77, 24, 4135);
+    			add_location(a, file$b, 77, 24, 4162);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5142,11 +5142,11 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 87, 162, 5021);
+    			add_location(sup, file$b, 87, 162, 5048);
     			attr_dev(a, "href", "#bottom_footnote_" + /*splitFootnote*/ ctx[11][1]);
     			attr_dev(a, "id", a_id_value = "" + (/*textFootnote*/ ctx[13][0] + "-" + (/*textFootnote*/ ctx[13][2] - /*countFootnote*/ ctx[14])));
     			attr_dev(a, "class", "footnote text_content svelte-c6mash");
-    			add_location(a, file$b, 87, 28, 4887);
+    			add_location(a, file$b, 87, 28, 4914);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5193,10 +5193,10 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 83, 104, 4598);
+    			add_location(sup, file$b, 83, 104, 4625);
     			attr_dev(a, "href", a_href_value = "#bottom_footnote_" + /*numberParagraph*/ ctx[12]);
     			attr_dev(a, "class", "footnote text_content svelte-c6mash");
-    			add_location(a, file$b, 83, 28, 4522);
+    			add_location(a, file$b, 83, 28, 4549);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5240,7 +5240,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-c6mash");
-    			add_location(a, file$b, 74, 28, 3954);
+    			add_location(a, file$b, 74, 28, 3981);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5275,7 +5275,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-c6mash");
-    			add_location(a, file$b, 72, 28, 3801);
+    			add_location(a, file$b, 72, 28, 3828);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5311,7 +5311,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(div, "class", "text_content svelte-c6mash");
-    			add_location(div, file$b, 21, 16, 644);
+    			add_location(div, file$b, 21, 16, 671);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -5348,9 +5348,9 @@ var app = (function () {
     			div = element("div");
     			br = element("br");
     			t = space();
-    			add_location(br, file$b, 19, 43, 596);
+    			add_location(br, file$b, 19, 43, 623);
     			attr_dev(div, "class", "text_content svelte-c6mash");
-    			add_location(div, file$b, 19, 16, 569);
+    			add_location(div, file$b, 19, 16, 596);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);

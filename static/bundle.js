@@ -8914,67 +8914,67 @@ var app = (function () {
     			button.textContent = "로그인";
     			attr_dev(h1, "id", "Login_Text");
     			attr_dev(h1, "class", "svelte-2nee77");
-    			add_location(h1, file$6, 31, 12, 758);
+    			add_location(h1, file$6, 35, 12, 837);
     			attr_dev(div0, "id", "Login_Title_2");
     			attr_dev(div0, "class", "svelte-2nee77");
-    			add_location(div0, file$6, 30, 8, 720);
+    			add_location(div0, file$6, 34, 8, 799);
     			attr_dev(div1, "id", "Login_Title");
     			attr_dev(div1, "class", "svelte-2nee77");
-    			add_location(div1, file$6, 29, 4, 688);
+    			add_location(div1, file$6, 33, 4, 767);
     			attr_dev(label0, "for", "usernameInput");
     			attr_dev(label0, "class", "svelte-2nee77");
-    			add_location(label0, file$6, 38, 20, 991);
+    			add_location(label0, file$6, 42, 20, 1070);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "usernameInput");
     			attr_dev(input0, "name", "email");
     			attr_dev(input0, "class", "svelte-2nee77");
-    			add_location(input0, file$6, 39, 20, 1053);
+    			add_location(input0, file$6, 43, 20, 1132);
     			attr_dev(div2, "class", "usernameBox svelte-2nee77");
-    			add_location(div2, file$6, 37, 16, 944);
+    			add_location(div2, file$6, 41, 16, 1023);
     			attr_dev(label1, "for", "passwordInput");
     			attr_dev(label1, "class", "svelte-2nee77");
-    			add_location(label1, file$6, 42, 20, 1212);
+    			add_location(label1, file$6, 46, 20, 1291);
     			attr_dev(input1, "type", "password");
     			attr_dev(input1, "id", "passwordInput");
     			attr_dev(input1, "name", "password");
     			attr_dev(input1, "class", "svelte-2nee77");
-    			add_location(input1, file$6, 43, 20, 1277);
+    			add_location(input1, file$6, 47, 20, 1356);
     			attr_dev(div3, "class", "usernameBox svelte-2nee77");
-    			add_location(div3, file$6, 41, 16, 1165);
+    			add_location(div3, file$6, 45, 16, 1244);
     			attr_dev(input2, "type", "checkbox");
     			attr_dev(input2, "name", "autologin");
-    			add_location(input2, file$6, 47, 24, 1497);
+    			add_location(input2, file$6, 51, 24, 1576);
     			attr_dev(span, "class", "svelte-2nee77");
-    			add_location(span, file$6, 48, 24, 1563);
+    			add_location(span, file$6, 52, 24, 1642);
     			attr_dev(label2, "id", "autoLoginLabel");
     			attr_dev(label2, "class", "svelte-2nee77");
-    			add_location(label2, file$6, 46, 20, 1444);
+    			add_location(label2, file$6, 50, 20, 1523);
     			attr_dev(div4, "id", "autoLoginBox");
     			attr_dev(div4, "class", "svelte-2nee77");
-    			add_location(div4, file$6, 45, 16, 1399);
+    			add_location(div4, file$6, 49, 16, 1478);
     			attr_dev(a0, "href", "/");
     			attr_dev(a0, "id", "findID");
     			attr_dev(a0, "class", "svelte-2nee77");
-    			add_location(a0, file$6, 51, 16, 1654);
+    			add_location(a0, file$6, 55, 16, 1733);
     			attr_dev(a1, "href", "/");
     			attr_dev(a1, "id", "MakeProfile");
     			attr_dev(a1, "class", "svelte-2nee77");
-    			add_location(a1, file$6, 53, 20, 1755);
+    			add_location(a1, file$6, 57, 20, 1834);
     			attr_dev(button, "id", "LoginButton");
     			attr_dev(button, "type", "submit");
     			attr_dev(button, "class", "svelte-2nee77");
-    			add_location(button, file$6, 54, 20, 1816);
+    			add_location(button, file$6, 58, 20, 1895);
     			attr_dev(div5, "id", "buttonBox");
     			attr_dev(div5, "class", "svelte-2nee77");
-    			add_location(div5, file$6, 52, 16, 1713);
+    			add_location(div5, file$6, 56, 16, 1792);
     			attr_dev(form, "method", "post");
     			attr_dev(form, "id", "LoginForm");
     			attr_dev(form, "class", "svelte-2nee77");
-    			add_location(form, file$6, 36, 12, 854);
-    			add_location(div6, file$6, 35, 8, 835);
-    			add_location(div7, file$6, 34, 4, 820);
+    			add_location(form, file$6, 40, 12, 933);
+    			add_location(div6, file$6, 39, 8, 914);
+    			add_location(div7, file$6, 38, 4, 899);
     			attr_dev(article, "class", "svelte-2nee77");
-    			add_location(article, file$6, 28, 0, 673);
+    			add_location(article, file$6, 32, 0, 752);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9061,17 +9061,18 @@ var app = (function () {
     	async function post_form() {
     		const user = { email, password };
 
-    		fetch("/login", {
+    		await fetch("/login", {
     			method: "POST",
     			headers: { 'Content-Type': 'application/json' },
     			body: JSON.stringify(user)
     		}).then(response => {
-    			// console.log(response);
-    			if (response.success) {
-    				window.location.href = "/";
-    			} else {
-    				alert('이메일 혹은 비밀번호 에러!!!');
-    			}
+    			response.json().then(j => {
+    				if (j.success) {
+    					window.location.href = "/";
+    				} else {
+    					alert('이메일 / 비밀번호가 올바르지 않습니다!');
+    				}
+    			});
     		}).catch(error => {
     			console.log('error');
     		});

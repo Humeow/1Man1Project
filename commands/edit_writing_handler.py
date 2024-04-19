@@ -9,7 +9,7 @@ from commands.writeauth_handler import write_auth
 
 
 class classEditWriting:
-    async def edit_with_archive(self, writing_model: WritingData, user: UserData, message):
+    async def edit_with_archive(self, writing_model: WritingData, user: UserData, message, hb: bool = False):
         """
         :param writing_model: path, content
         :param user: email
@@ -20,13 +20,22 @@ class classEditWriting:
             results = session.exec(statement)
             user_data = results.first()
 
-            statement = select(WritingData).where(WritingData.path == writing_model.path)
-            results = session.exec(statement)
+            if hb:
+                statement = select(HiddenWriting).where(HiddenWriting.path == writing_model.path)
+                results = session.exec(statement)
+            else:
+                statement = select(WritingData).where(WritingData.path == writing_model.path)
+                results = session.exec(statement)
+
             writing_data = results.first()
 
             if writing_data is None:
-                statement = select(MainWriting).where(WritingData.path == writing_model.path)
-                results = session.exec(statement)
+                if hb:
+                    statement = select(HiddenMainWriting).where(HiddenMainWriting.path == writing_model.path)
+                    results = session.exec(statement)
+                else:
+                    statement = select(MainWriting).where(WritingData.path == writing_model.path)
+                    results = session.exec(statement)
                 writing_data = results.first()
 
                 if writing_data is None:
@@ -85,8 +94,6 @@ class classEditWriting:
             session.refresh(writing_data)
 
             return {"success": True}
-
-
 
 
 writingEdit = classEditWriting()

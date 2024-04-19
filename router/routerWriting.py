@@ -88,13 +88,11 @@ async def main_write_output(request: Request, response: Response, hb: bool = Fal
 #     return {"success": True}
 
 
-@router.post("/write/output", tags=['path'])
+@router.post("/write/output", tags=['path', 'hb'])
 async def write_output(request: Request, response: Response, path: str, hb: bool = False,
                        access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     path = path.strip()
     fail_data['content'] = fail_data['content'].replace('[[새문서]]', f'[[edit/{path}|새 문서 작성하기]]')
-
-    writing_data = ''
 
     is_access_valid = tokenizer.validate_token(access, refresh)
 
@@ -137,7 +135,7 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
 
 
 @router.post("/write/edit_archive")
-async def write_edit_archive(request: Request, edit_writing: ArchiveWriting,
+async def write_edit_archive(request: Request, response: Response, edit_writing: ArchiveWriting, hb: bool = False,
                              access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     """
     :param edit_writing: content, message
@@ -148,7 +146,7 @@ async def write_edit_archive(request: Request, edit_writing: ArchiveWriting,
     if not is_access_valid['success']:
         return {'success': False}
 
-    response = RedirectResponse(url="/w/" + edit_writing.path, status_code=status.HTTP_302_FOUND)
+    # response = RedirectResponse(url="/w/" + edit_writing.path, status_code=status.HTTP_302_FOUND)
 
     if is_access_valid['is_refreshed']:
         response.set_cookie(key='access', value=is_access_valid['new_access'][0],
@@ -157,10 +155,10 @@ async def write_edit_archive(request: Request, edit_writing: ArchiveWriting,
     writing_data = WritingData(path=edit_writing.path, content=edit_writing.content,)
     user_data = UserData(email=is_access_valid['token']['sub'])
 
-    result = await writingEdit.edit_with_archive(writing_data, user_data, edit_writing.message)
+    result = await writingEdit.edit_with_archive(writing_data, user_data, edit_writing.message, hb)
 
     if result['success']:
-        return response
+        return {'success': True}
     else:
         return {'success': False}
 

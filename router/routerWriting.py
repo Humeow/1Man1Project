@@ -117,9 +117,25 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
                 statement = select(WritingData).where(WritingData.path == path)
                 writing_data = session.exec(statement).first()
 
+            if writing_data is None:
+                if user_auth <= min_user_auth:
+                    statement = select(HiddenMainWriting).where(HiddenMainWriting.path == path)
+                    writing_data = session.exec(statement).first()
+                    if writing_data is None:
+                        statement = select(MainWriting).where(MainWriting.path == path)
+                        writing_data = session.exec(statement).first()
+
+                else:
+                    statement = select(MainWriting).where(MainWriting.path == path)
+                    writing_data = session.exec(statement).first()
+
         else:
             statement = select(WritingData).where(WritingData.path == path)
             writing_data = session.exec(statement).first()
+
+            if writing_data is None:
+                statement = select(HiddenMainWriting).where(HiddenMainWriting.path == path)
+                writing_data = session.exec(statement).first()
 
         if writing_data is None:
             return {'success': False, 'data': fail_data}

@@ -25,3 +25,6 @@ class hash_class:
 
 
 hasher = hash_class()
+
+if __name__ == '__main__':
+    pass

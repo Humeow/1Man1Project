@@ -63,11 +63,6 @@ def index(request: Request):
 def index(request: Request):
     return templates.TemplateResponse("login.html", context={"request": request})
 
-
-@app.get("/editscreen", response_class=HTMLResponse)
-def index(request: Request):
-    return templates.TemplateResponse("editscreen.html", context={"request": request})
-
 #===== router sync start =====#
 for file in os.listdir("./router"):
     if len(file) >= 4:

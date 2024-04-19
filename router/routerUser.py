@@ -13,58 +13,31 @@ from typing import Annotated
 
 router = APIRouter()
 
+@router.post("/user/information")
+async def user_login(request: Request, response: Response,
+                     access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
+    is_access_valid = tokenizer.validate_token(access, refresh)
+    if not is_access_valid['success']:
+        return is_access_valid
 
-# oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")  <- 얘 못 쓰겠음
+    if is_access_valid['is_refreshed']:
+        response.set_cookie(key='access', value=is_access_valid['new_access'][0],
+                            expires=is_access_valid['new_access'][1])
 
+    email = is_access_valid['token']['sub']
 
-# @router.post("/user/input")
-# async def user_input(request: Request, user_data: UserData):
-#     with Session(engine) as session:
-#         session.add(user_data)
-#         session.commit()
-#         session.refresh(user_data)
-#
-#     return {"success": True}
-#
-#
-# @router.post("/user/output")
-# async def user_output(request: Request, user_name: str):
-#     with Session(engine) as session:
-#         statement = select(UserData).where(UserData.name == user_name)
-#         result = session.exec(statement).first()
-#
-#     if result is None:
-#         return {"success": False}
-#
-#     return {"success": True, "data": result}
+    with Session(engine) as session:
+        statement = select(UserData).where(UserData.email == email)
+        result = session.exec(statement).first()
 
-# @router.post("/login")
-# async def user_login(request: Request, response: Response, email: str = Form(), password: str = Form()):
-#     with Session(engine) as session:
-#         statement = select(UserData).where(UserData.email == email)
-#         result = session.exec(statement).first()
-#
-#     if result is None:
-#         return {"success": False, 'msg': 'no_user'}
-#
-#     if result.password == password:
-#         access_token = glovar.tokenizer.create_access_token(email)
-#         refresh_token = glovar.tokenizer.create_refresh_token(email)
-#
-#         response.set_cookie(key='access', value=access_token[0], expires=access_token[1])  # httponly = ?
-#         response.set_cookie(key='refresh', value=refresh_token[0], expires=refresh_token[1])
-#
-#         return {"success": True, 'access': access_token[0], 'refresh': refresh_token[0]}
-#
-#     else:
-#         return {"success": False, 'msg': 'pwd_fail'}
+        del result.password
+        del result.age
+
+        return {'success': True, 'data': result}
+
 
 @router.post("/login", tags=['email, password'])
-# async def user_login(request: Request, response: Response, email: str = Form(), password: str = Form()):  # TODO: HTTPS ssl 적용
 async def user_login(request: Request, response: Response, user: UserData):  # TODO: HTTPS ssl 적용
-    # email = 'coodi60419@gmail.com'
-    # password = 'baka'
-
     email = user.email
     password = user.password
 
@@ -118,17 +91,31 @@ async def user_register_code(request: Request, response: Response, email: str):
 @router.post("/register")
 async def user_register(request: Request, response: Response, request_id: int, auth_key: int,
                         user_data: requestUserData):
+    """
+    :param user_data:
+        password
+        name
+        age
+    """
     result = await mail_author.auth(request_id, auth_key)
 
     if not result['success']:
         return result
 
-    requestUserData.password = hasher.hash_make(requestUserData.password)
+    user_data.password = hasher.hash_make(user_data.password)
+
+    insert_user_data = UserData(
+        authority=3,
+        email=result['data'].email,
+        password=user_data.password,
+        name=user_data.name,
+        age=user_data.age,
+    )
 
     with Session(engine) as session:
-        session.add(user_data)
+        session.add(insert_user_data)
         session.commit()
-        session.refresh(user_data)
+        session.refresh(insert_user_data)
 
     return {"success": True}
 

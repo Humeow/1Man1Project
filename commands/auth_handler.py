@@ -12,7 +12,7 @@ async def user_check(access):
         if not validation['success']:
             return validation
 
-        email = validation['token']['sub']
+        email = validation['token']['data']['sub']
 
         statement = select(UserData).where(UserData.email == email)
         result = session.exec(statement).first()

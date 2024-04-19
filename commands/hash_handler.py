@@ -1,12 +1,11 @@
 import hashlib
 
+
 class hash_class:
     def __init__(self):
         self.hash_count = 2
 
     def hash_make(self, text):
-        global hashmake_repeat
-
         for x in range(self.hash_count):
             result = hashlib.sha256(text.encode())
             text = result.hexdigest()

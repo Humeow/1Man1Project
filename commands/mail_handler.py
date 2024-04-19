@@ -54,7 +54,10 @@ class MailAuth(Mail):  # 메일 인증 클래스, 메일 클래스를 상속 받
                 result = session.exec(statement).first()
 
                 if result is None:
-                    session.add(sessionEmail(request_id=request_id, auth_key=auth_key, creation=time.time()))
+                    session.add(sessionEmail(request_id=request_id,
+                                             auth_key=auth_key,
+                                             email=reception,
+                                             creation=time.time()))
                     session.commit()
                     # session.refresh(sessionEmail)
 
@@ -86,7 +89,7 @@ class MailAuth(Mail):  # 메일 인증 클래스, 메일 클래스를 상속 받
             if result.auth_key == auth_key and result.creation + expiration_time > time.time():  # 만약 5분안에 인증 요청이 왔고 숫자가 일치한다면 True 반환
                 session.delete(result)
                 session.commit()
-                return {'success': True}
+                return {'success': True, 'data': result}
 
             elif result.auth_key != auth_key:  # 인증 숫자가 일치하지 않는다면 False 반환
                 return {'success': False, 'msg': 'incorrect_key'}

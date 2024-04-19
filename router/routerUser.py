@@ -14,7 +14,7 @@ from typing import Annotated
 router = APIRouter()
 
 @router.post("/user/information")
-async def user_login(request: Request, response: Response,
+async def user_information(request: Request, response: Response,
                      access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     is_access_valid = tokenizer.validate_token(access, refresh)
     if not is_access_valid['success']:

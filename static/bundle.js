@@ -7814,7 +7814,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 47, 2, 1325);
+    			add_location(div, file$7, 47, 2, 1355);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8304,7 +8304,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 56, 4, 1570);
+    			add_location(div, file$7, 56, 4, 1600);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8336,7 +8336,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 53, 3, 1502);
+    			add_location(div, file$7, 53, 3, 1532);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8408,11 +8408,11 @@ var app = (function () {
     			button = element("button");
     			attr_dev(div, "id", "contents");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 51, 1, 1449);
+    			add_location(div, file$7, 51, 1, 1479);
     			attr_dev(button, "class", "svelte-1bps8dd");
-    			add_location(button, file$7, 77, 1, 2278);
+    			add_location(button, file$7, 77, 1, 2308);
     			attr_dev(main, "class", "svelte-1bps8dd");
-    			add_location(main, file$7, 45, 0, 1288);
+    			add_location(main, file$7, 45, 0, 1318);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8508,7 +8508,7 @@ var app = (function () {
     				url = `/write/main`;
     			}
 
-    			const res = await fetch(url, { method: 'POST' });
+    			const res = await fetch(url, { method: 'POST', mode: 'cors' });
     			const json = await res.json();
     			$$invalidate(0, path = json.data.path);
     			return json;
@@ -8519,7 +8519,7 @@ var app = (function () {
     				url = `/write/output?path=${path}`;
     			}
 
-    			const res = await fetch(url, { method: 'POST' });
+    			const res = await fetch(url, { method: 'POST', mode: 'cors' });
     			const json = await res.json();
     			return json;
     		}
@@ -9784,7 +9784,7 @@ var app = (function () {
     			create_component(article.$$.fragment);
     			attr_dev(div, "id", "contents");
     			attr_dev(div, "class", "svelte-17o536c");
-    			add_location(div, file$3, 34, 3, 944);
+    			add_location(div, file$3, 34, 3, 973);
     		},
     		m: function mount(target, anchor) {
     			mount_component(search_bar, target, anchor);
@@ -9847,7 +9847,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-17o536c");
-    			add_location(div, file$3, 31, 3, 823);
+    			add_location(div, file$3, 31, 3, 852);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9880,7 +9880,7 @@ var app = (function () {
     			div = element("div");
     			attr_dev(div, "id", "contents");
     			attr_dev(div, "class", "svelte-17o536c");
-    			add_location(div, file$3, 28, 2, 740);
+    			add_location(div, file$3, 28, 2, 769);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9928,7 +9928,7 @@ var app = (function () {
     			main = element("main");
     			info.block.c();
     			attr_dev(main, "class", "svelte-17o536c");
-    			add_location(main, file$3, 26, 0, 700);
+    			add_location(main, file$3, 26, 0, 729);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9981,7 +9981,7 @@ var app = (function () {
     }
 
     async function getUser() {
-    	const res = await fetch("/user/information", { method: "POST" });
+    	const res = await fetch("/user/information", { method: "POST", mode: 'cors' });
     	const json = await res.json();
     	return json;
     }
@@ -9994,7 +9994,7 @@ var app = (function () {
 
     	async function getWrite() {
     		console.log(path);
-    		const res = await fetch(`/write/output?path=${path}&hb=${hiddenButton}`, { method: 'POST' });
+    		const res = await fetch(`/write/output?path=${path}&hb=${hiddenButton}`, { method: 'POST', mode: 'cors' });
     		const json = await res.json();
     		return json;
     	}

@@ -7743,7 +7743,7 @@ var app = (function () {
     	return block;
     }
 
-    // (44:1) {:then UserOutput}
+    // (49:1) {:then UserOutput}
     function create_then_block_2(ctx) {
     	let search_bar;
     	let updating_hidden;
@@ -7799,14 +7799,14 @@ var app = (function () {
     		block,
     		id: create_then_block_2.name,
     		type: "then",
-    		source: "(44:1) {:then UserOutput}",
+    		source: "(49:1) {:then UserOutput}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:27)    <div></div>  {:then UserOutput}
+    // (47:27)    <div></div>  {:then UserOutput}
     function create_pending_block_2(ctx) {
     	let div;
 
@@ -7814,7 +7814,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 42, 2, 1168);
+    			add_location(div, file$7, 47, 2, 1325);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7831,7 +7831,7 @@ var app = (function () {
     		block,
     		id: create_pending_block_2.name,
     		type: "pending",
-    		source: "(42:27)    <div></div>  {:then UserOutput}",
+    		source: "(47:27)    <div></div>  {:then UserOutput}",
     		ctx
     	});
 
@@ -7860,7 +7860,7 @@ var app = (function () {
     	return block;
     }
 
-    // (50:2) {:then writeOutput}
+    // (55:2) {:then writeOutput}
     function create_then_block$1(ctx) {
     	let await_block_anchor;
     	let current;
@@ -7920,7 +7920,7 @@ var app = (function () {
     		block,
     		id: create_then_block$1.name,
     		type: "then",
-    		source: "(50:2) {:then writeOutput}",
+    		source: "(55:2) {:then writeOutput}",
     		ctx
     	});
 
@@ -7949,7 +7949,7 @@ var app = (function () {
     	return block;
     }
 
-    // (53:3) {:then UserOutput}
+    // (58:3) {:then UserOutput}
     function create_then_block_1$1(ctx) {
     	get_then_context(ctx);
     	let current_block_type_index;
@@ -8024,14 +8024,14 @@ var app = (function () {
     		block,
     		id: create_then_block_1$1.name,
     		type: "then",
-    		source: "(53:3) {:then UserOutput}",
+    		source: "(58:3) {:then UserOutput}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (64:4) {:else}
+    // (69:4) {:else}
     function create_else_block(ctx) {
     	let header;
     	let t;
@@ -8099,14 +8099,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(64:4) {:else}",
+    		source: "(69:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:4) {#if writeOutput.success}
+    // (61:4) {#if writeOutput.success}
     function create_if_block(ctx) {
     	let header;
     	let t0;
@@ -8239,14 +8239,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(56:4) {#if writeOutput.success}",
+    		source: "(61:4) {#if writeOutput.success}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (59:5) {#if matchesParagraph.length !== 0}
+    // (64:5) {#if matchesParagraph.length !== 0}
     function create_if_block_1(ctx) {
     	let aside;
     	let current;
@@ -8289,14 +8289,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(59:5) {#if matchesParagraph.length !== 0}",
+    		source: "(64:5) {#if matchesParagraph.length !== 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:29)      <div></div>    {:then UserOutput}
+    // (56:29)      <div></div>    {:then UserOutput}
     function create_pending_block_1$1(ctx) {
     	let div;
 
@@ -8304,7 +8304,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 51, 4, 1413);
+    			add_location(div, file$7, 56, 4, 1570);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8321,14 +8321,14 @@ var app = (function () {
     		block,
     		id: create_pending_block_1$1.name,
     		type: "pending",
-    		source: "(51:29)      <div></div>    {:then UserOutput}",
+    		source: "(56:29)      <div></div>    {:then UserOutput}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (48:29)     <div></div>   {:then writeOutput}
+    // (53:29)     <div></div>   {:then writeOutput}
     function create_pending_block$1(ctx) {
     	let div;
 
@@ -8336,7 +8336,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 48, 3, 1345);
+    			add_location(div, file$7, 53, 3, 1502);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -8353,7 +8353,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$1.name,
     		type: "pending",
-    		source: "(48:29)     <div></div>   {:then writeOutput}",
+    		source: "(53:29)     <div></div>   {:then writeOutput}",
     		ctx
     	});
 
@@ -8408,11 +8408,11 @@ var app = (function () {
     			button = element("button");
     			attr_dev(div, "id", "contents");
     			attr_dev(div, "class", "svelte-1bps8dd");
-    			add_location(div, file$7, 46, 1, 1292);
+    			add_location(div, file$7, 51, 1, 1449);
     			attr_dev(button, "class", "svelte-1bps8dd");
-    			add_location(button, file$7, 72, 1, 2121);
+    			add_location(button, file$7, 77, 1, 2278);
     			attr_dev(main, "class", "svelte-1bps8dd");
-    			add_location(main, file$7, 40, 0, 1131);
+    			add_location(main, file$7, 45, 0, 1288);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -8499,13 +8499,27 @@ var app = (function () {
     	}
 
     	async function getWrite() {
+    		let url = '';
+
     		if (path === undefined) {
-    			const res = await fetch(`/write/main?hb=${hiddenButton}`, { method: 'POST' });
+    			if (hiddenButton) {
+    				url = `/write/main?hb=${hiddenButton}`;
+    			} else {
+    				url = `/write/main`;
+    			}
+
+    			const res = await fetch(url, { method: 'POST' });
     			const json = await res.json();
     			$$invalidate(0, path = json.data.path);
     			return json;
     		} else {
-    			const res = await fetch(`/write/output?path=${path}&hb=${hiddenButton}`, { method: 'POST' });
+    			if (hiddenButton) {
+    				url = `/write/output?path=${path}&hb=${hiddenButton}`;
+    			} else {
+    				url = `/write/output?path=${path}`;
+    			}
+
+    			const res = await fetch(url, { method: 'POST' });
     			const json = await res.json();
     			return json;
     		}

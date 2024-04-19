@@ -1658,7 +1658,7 @@ var app = (function () {
     	let if_block;
     	let if_block_anchor;
     	let current;
-    	const if_block_creators = [create_if_block_1$4, create_else_block$5];
+    	const if_block_creators = [create_if_block_1$5, create_else_block$5];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -1791,7 +1791,7 @@ var app = (function () {
     }
 
     // (43:4) {#if component}
-    function create_if_block_1$4(ctx) {
+    function create_if_block_1$5(ctx) {
     	let await_block_anchor;
     	let promise;
     	let current;
@@ -1853,7 +1853,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$4.name,
+    		id: create_if_block_1$5.name,
     		type: "if",
     		source: "(43:4) {#if component}",
     		ctx
@@ -2962,14 +2962,14 @@ var app = (function () {
 
     const file$f = "src/components/Home/Header.svelte";
 
-    // (31:12) {:else}
+    // (34:12) {:else}
     function create_else_block_2$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			add_location(div, file$f, 31, 16, 1452);
+    			add_location(div, file$f, 34, 16, 1603);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -2984,14 +2984,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2$1.name,
     		type: "else",
-    		source: "(31:12) {:else}",
+    		source: "(34:12) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (26:12) {#if (writeOutput.success)}
+    // (29:12) {#if (writeOutput.success)}
     function create_if_block_2$2(ctx) {
     	let div;
 
@@ -3002,7 +3002,7 @@ var app = (function () {
     			div.textContent = `최근 수정 시각: ${/*timeEdit*/ ctx[3].slice(0, 4)}-${/*timeEdit*/ ctx[3].slice(4, 6)}-${/*timeEdit*/ ctx[3].slice(6, 8)} 
                     ${/*timeEdit*/ ctx[3].slice(8, 10)}:${/*timeEdit*/ ctx[3].slice(10, 12)}:${/*timeEdit*/ ctx[3].slice(12, 14)}`;
 
-    			add_location(div, file$f, 26, 16, 1189);
+    			add_location(div, file$f, 29, 16, 1340);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3017,21 +3017,21 @@ var app = (function () {
     		block,
     		id: create_if_block_2$2.name,
     		type: "if",
-    		source: "(26:12) {#if (writeOutput.success)}",
+    		source: "(29:12) {#if (writeOutput.success)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:8) {:else}
+    // (84:8) {:else}
     function create_else_block_1$1(ctx) {
     	let div;
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			add_location(div, file$f, 81, 12, 6230);
+    			add_location(div, file$f, 84, 12, 6381);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3046,14 +3046,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1$1.name,
     		type: "else",
-    		source: "(81:8) {:else}",
+    		source: "(84:8) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:8) {#if (writeOutput.success)}
+    // (38:8) {#if (writeOutput.success)}
     function create_if_block$5(ctx) {
     	let div3;
     	let div1;
@@ -3069,7 +3069,7 @@ var app = (function () {
     	let div2;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*isEditable*/ ctx[2]) return create_if_block_1$3;
+    		if (/*isEditable*/ ctx[2]) return create_if_block_1$4;
     		return create_else_block$3;
     	}
 
@@ -3095,25 +3095,25 @@ var app = (function () {
     			attr_dev(input, "id", "modal");
     			attr_dev(input, "class", "edit_box svelte-lczm8w");
     			attr_dev(input, "data-v-f71337ee", "");
-    			add_location(input, file$f, 38, 24, 1661);
-    			add_location(div0, file$f, 37, 20, 1630);
+    			add_location(input, file$f, 41, 24, 1812);
+    			add_location(div0, file$f, 40, 20, 1781);
     			attr_dev(path_1, "d", "M96 0C43 0 0 43 0 96V416c0 53 43 96 96 96H384h32c17.7 0 32-14.3 32-32s-14.3-32-32-32V384c17.7 0 32-14.3 32-32V32c0-17.7-14.3-32-32-32H384 96zm0 384H352v64H96c-17.7 0-32-14.3-32-32s14.3-32 32-32zm32-240c0-8.8 7.2-16 16-16H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16zm16 48H336c8.8 0 16 7.2 16 16s-7.2 16-16 16H144c-8.8 0-16-7.2-16-16s7.2-16 16-16z");
-    			add_location(path_1, file$f, 70, 28, 5620);
+    			add_location(path_1, file$f, 73, 28, 5771);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg, "height", "1em");
     			attr_dev(svg, "viewBox", "0 0 448 512");
     			attr_dev(svg, "class", "svelte-lczm8w");
-    			add_location(svg, file$f, 69, 24, 5515);
+    			add_location(svg, file$f, 72, 24, 5666);
     			attr_dev(a, "href", "/");
     			attr_dev(a, "class", "history1 svelte-lczm8w");
-    			add_location(a, file$f, 68, 20, 5460);
+    			add_location(a, file$f, 71, 20, 5611);
     			attr_dev(div1, "id", "head_button");
     			attr_dev(div1, "class", "svelte-lczm8w");
-    			add_location(div1, file$f, 36, 16, 1586);
-    			add_location(div2, file$f, 76, 16, 6148);
+    			add_location(div1, file$f, 39, 16, 1737);
+    			add_location(div2, file$f, 79, 16, 6299);
     			attr_dev(div3, "id", "head_div");
     			attr_dev(div3, "class", "svelte-lczm8w");
-    			add_location(div3, file$f, 35, 12, 1549);
+    			add_location(div3, file$f, 38, 12, 1700);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div3, anchor);
@@ -3143,14 +3143,14 @@ var app = (function () {
     		block,
     		id: create_if_block$5.name,
     		type: "if",
-    		source: "(35:8) {#if (writeOutput.success)}",
+    		source: "(38:8) {#if (writeOutput.success)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:24) {:else}
+    // (54:24) {:else}
     function create_else_block$3(ctx) {
     	let label;
     	let span2;
@@ -3171,22 +3171,22 @@ var app = (function () {
     			span0 = element("span");
     			span0.textContent = "편집";
     			attr_dev(path_1, "d", "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z");
-    			add_location(path_1, file$f, 55, 44, 3486);
+    			add_location(path_1, file$f, 58, 44, 3637);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg, "height", "16");
     			attr_dev(svg, "width", "16");
     			attr_dev(svg, "viewBox", "0 0 512 512");
     			attr_dev(svg, "class", "svelte-lczm8w");
-    			add_location(svg, file$f, 54, 40, 3355);
-    			add_location(span0, file$f, 57, 40, 4257);
-    			add_location(span1, file$f, 53, 36, 3307);
+    			add_location(svg, file$f, 57, 40, 3506);
+    			add_location(span0, file$f, 60, 40, 4408);
+    			add_location(span1, file$f, 56, 36, 3458);
     			attr_dev(span2, "class", "edit1 svelte-lczm8w");
     			set_style(span2, "background-color", "lightgray");
-    			add_location(span2, file$f, 52, 32, 3212);
+    			add_location(span2, file$f, 55, 32, 3363);
     			attr_dev(label, "for", "modal");
     			attr_dev(label, "class", "edit_button svelte-lczm8w");
     			attr_dev(label, "data-v-f71337ee", "");
-    			add_location(label, file$f, 51, 28, 3120);
+    			add_location(label, file$f, 54, 28, 3271);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, label, anchor);
@@ -3207,15 +3207,15 @@ var app = (function () {
     		block,
     		id: create_else_block$3.name,
     		type: "else",
-    		source: "(51:24) {:else}",
+    		source: "(54:24) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:24) {#if isEditable}
-    function create_if_block_1$3(ctx) {
+    // (43:24) {#if isEditable}
+    function create_if_block_1$4(ctx) {
     	let label;
     	let span1;
     	let a;
@@ -3236,22 +3236,22 @@ var app = (function () {
     			span0 = element("span");
     			span0.textContent = "편집";
     			attr_dev(path_1, "d", "M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z");
-    			add_location(path_1, file$f, 44, 44, 2150);
+    			add_location(path_1, file$f, 47, 44, 2301);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg, "height", "16");
     			attr_dev(svg, "width", "16");
     			attr_dev(svg, "viewBox", "0 0 512 512");
     			attr_dev(svg, "class", "svelte-lczm8w");
-    			add_location(svg, file$f, 43, 40, 2019);
-    			add_location(span0, file$f, 46, 40, 2921);
+    			add_location(svg, file$f, 46, 40, 2170);
+    			add_location(span0, file$f, 49, 40, 3072);
     			attr_dev(a, "href", a_href_value = "/edit/" + /*path*/ ctx[0]);
-    			add_location(a, file$f, 42, 36, 1954);
+    			add_location(a, file$f, 45, 36, 2105);
     			attr_dev(span1, "class", "edit1 svelte-lczm8w");
-    			add_location(span1, file$f, 41, 32, 1895);
+    			add_location(span1, file$f, 44, 32, 2046);
     			attr_dev(label, "for", "modal");
     			attr_dev(label, "class", "edit_button svelte-lczm8w");
     			attr_dev(label, "data-v-f71337ee", "");
-    			add_location(label, file$f, 40, 28, 1803);
+    			add_location(label, file$f, 43, 28, 1954);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, label, anchor);
@@ -3274,9 +3274,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$3.name,
+    		id: create_if_block_1$4.name,
     		type: "if",
-    		source: "(40:24) {#if isEditable}",
+    		source: "(43:24) {#if isEditable}",
     		ctx
     	});
 
@@ -3321,15 +3321,15 @@ var app = (function () {
     			if_block1.c();
     			attr_dev(p, "id", "title");
     			attr_dev(p, "class", "svelte-lczm8w");
-    			add_location(p, file$f, 15, 12, 478);
+    			add_location(p, file$f, 18, 12, 629);
     			attr_dev(div0, "id", "head_line_div");
     			attr_dev(div0, "class", "svelte-lczm8w");
-    			add_location(div0, file$f, 14, 8, 440);
+    			add_location(div0, file$f, 17, 8, 591);
     			attr_dev(div1, "id", "head_title");
     			attr_dev(div1, "class", "svelte-lczm8w");
-    			add_location(div1, file$f, 13, 4, 409);
+    			add_location(div1, file$f, 16, 4, 560);
     			attr_dev(header, "class", "svelte-lczm8w");
-    			add_location(header, file$f, 12, 0, 395);
+    			add_location(header, file$f, 15, 0, 546);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3396,9 +3396,17 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Header', slots, []);
     	let { path = '' } = $$props;
-    	let { writeOutput = { data: { authority: defaultUserAuth } } } = $$props;
-    	let { UserOutput = {} } = $$props;
-    	const authorityUser = UserOutput.data.authority;
+    	let { writeOutput = { data: { authority: 2000 } } } = $$props;
+    	let { UserOutput = { data: { authority: 2000 } } } = $$props;
+    	let tempAuthorityUser;
+
+    	if (UserOutput.success) {
+    		tempAuthorityUser = UserOutput.data.authority;
+    	} else {
+    		tempAuthorityUser = 4;
+    	}
+
+    	const authorityUser = tempAuthorityUser;
     	const authorityWrite = writeOutput.data.authority;
     	const isEditable = Number(authorityWrite.toString()[authorityUser - 1]) % 2;
     	const timeEdit = writeOutput.data.recent_edit;
@@ -3418,6 +3426,7 @@ var app = (function () {
     		path,
     		writeOutput,
     		UserOutput,
+    		tempAuthorityUser,
     		authorityUser,
     		authorityWrite,
     		isEditable,
@@ -3428,6 +3437,7 @@ var app = (function () {
     		if ('path' in $$props) $$invalidate(0, path = $$props.path);
     		if ('writeOutput' in $$props) $$invalidate(1, writeOutput = $$props.writeOutput);
     		if ('UserOutput' in $$props) $$invalidate(4, UserOutput = $$props.UserOutput);
+    		if ('tempAuthorityUser' in $$props) tempAuthorityUser = $$props.tempAuthorityUser;
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -4188,7 +4198,7 @@ var app = (function () {
     }
 
     // (19:8) {#if (splitContent.length !== 0)}
-    function create_if_block_1$2(ctx) {
+    function create_if_block_1$3(ctx) {
     	let if_block_anchor;
     	let current;
     	let if_block = /*matchesContent*/ ctx[3].length !== 0 && create_if_block_2$1(get_if_ctx_8(ctx));
@@ -4223,7 +4233,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_1$3.name,
     		type: "if",
     		source: "(19:8) {#if (splitContent.length !== 0)}",
     		ctx
@@ -5250,7 +5260,7 @@ var app = (function () {
     	let current_block_type_index;
     	let if_block;
     	let current;
-    	const if_block_creators = [create_if_block$4, create_if_block_1$2];
+    	const if_block_creators = [create_if_block$4, create_if_block_1$3];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
@@ -6853,7 +6863,7 @@ var app = (function () {
     }
 
     // (150:12) {#if isNaN(footnote)}
-    function create_if_block_1$1(ctx) {
+    function create_if_block_1$2(ctx) {
     	let div;
     	let span0;
     	let t0;
@@ -6960,7 +6970,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$1.name,
+    		id: create_if_block_1$2.name,
     		type: "if",
     		source: "(150:12) {#if isNaN(footnote)}",
     		ctx
@@ -7031,12 +7041,12 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_3(ctx, dirty) {
-    		if (isNaN(/*footnote*/ ctx[21])) return create_if_block_1$1;
+    		if (isNaN(/*footnote*/ ctx[21])) return create_if_block_1$2;
     		return create_else_block_1;
     	}
 
     	function select_block_ctx(ctx, type) {
-    		if (type === create_if_block_1$1) return get_if_ctx(ctx);
+    		if (type === create_if_block_1$2) return get_if_ctx(ctx);
     		return ctx;
     	}
 
@@ -7365,8 +7375,53 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$8 = "src/components/Search_bar.svelte";
 
-    // (34:4) {#if (UserOutput.data.authority <= minAuthority)}
+    // (34:4) {#if (UserOutput.success)}
     function create_if_block$1(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*UserOutput*/ ctx[0].data.authority <= minAuthority && create_if_block_1$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (/*UserOutput*/ ctx[0].data.authority <= minAuthority) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block_1$1(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(34:4) {#if (UserOutput.success)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (35:8) {#if (UserOutput.data.authority <= minAuthority)}
+    function create_if_block_1$1(ctx) {
     	let a;
     	let ion_icon;
     	let mounted;
@@ -7378,9 +7433,9 @@ var app = (function () {
     			ion_icon = element("ion-icon");
     			set_custom_element_data(ion_icon, "name", "skull-outline");
     			set_custom_element_data(ion_icon, "class", "svelte-15vljcn");
-    			add_location(ion_icon, file$8, 34, 50, 3048);
+    			add_location(ion_icon, file$8, 35, 54, 3088);
     			attr_dev(a, "class", "hidden svelte-15vljcn");
-    			add_location(a, file$8, 34, 8, 3006);
+    			add_location(a, file$8, 35, 12, 3046);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -7401,9 +7456,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(34:4) {#if (UserOutput.data.authority <= minAuthority)}",
+    		source: "(35:8) {#if (UserOutput.data.authority <= minAuthority)}",
     		ctx
     	});
 
@@ -7437,7 +7492,7 @@ var app = (function () {
     	let t4;
     	let mounted;
     	let dispose;
-    	let if_block = /*UserOutput*/ ctx[0].data.authority <= minAuthority && create_if_block$1(ctx);
+    	let if_block = /*UserOutput*/ ctx[0].success && create_if_block$1(ctx);
 
     	const block = {
     		c: function create() {
@@ -7592,7 +7647,7 @@ var app = (function () {
     				attr_dev(a2, "href", a2_href_value);
     			}
 
-    			if (/*UserOutput*/ ctx[0].data.authority <= minAuthority) {
+    			if (/*UserOutput*/ ctx[0].success) {
     				if (if_block) {
     					if_block.p(ctx, dirty);
     				} else {
@@ -9507,7 +9562,7 @@ var app = (function () {
     	return block;
     }
 
-    const defaultUserAuth$1 = 4;
+    const defaultUserAuth = 4;
 
     function instance$4($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
@@ -9515,7 +9570,7 @@ var app = (function () {
     	let { path = '' } = $$props;
 
     	let { writeOutput = {
-    		data: { content: '', authority: defaultUserAuth$1 }
+    		data: { content: '', authority: defaultUserAuth }
     	} } = $$props;
 
     	let { hidden = false } = $$props;
@@ -9565,7 +9620,7 @@ var app = (function () {
 
     	$$self.$capture_state = () => ({
     		main: app,
-    		defaultUserAuth: defaultUserAuth$1,
+    		defaultUserAuth,
     		path,
     		writeOutput,
     		hidden,

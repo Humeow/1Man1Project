@@ -31,7 +31,8 @@ else:
 # app = FastAPI(docs_url='/coodi/api/docs', redoc_url='/coodi/api/redoc', openapi_url='/coodi/api/openapi')
 
 origins = ["http://localhost:8000",
-           "http://127.0.0.1:8000"]
+           "http://127.0.0.1:8000",
+           "http://158.179.173.108:2460/",]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

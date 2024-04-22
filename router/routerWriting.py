@@ -93,6 +93,8 @@ no_page_access_text = {  # 만약 없는 페이지일 때 보여줄 문서
 async def write_output(request: Request, response: Response, path: str, hb: bool = False,
                        access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     path = path.strip()
+    if path == 'undefined':
+        path = '웹플위키:대문'
 
     fail_data = copy.deepcopy(no_page_access_text)
     fail_data['content'] = fail_data['content'].replace('[[새문서]]', f'[[L:/edit/{path}|새 문서 작성하기]]')

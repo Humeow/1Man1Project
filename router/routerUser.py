@@ -13,6 +13,7 @@ from typing import Annotated
 
 router = APIRouter()
 
+
 @router.post("/user/information")
 async def user_information(request: Request, response: Response,
                      access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
@@ -31,7 +32,10 @@ async def user_information(request: Request, response: Response,
         result = session.exec(statement).first()
 
         if result is None:
-            return {'success': False}
+            return {'success': False,
+                    'data': UserData(
+                        authority=4,
+                    )}
 
         del result.password
         del result.age

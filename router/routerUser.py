@@ -30,6 +30,9 @@ async def user_information(request: Request, response: Response,
         statement = select(UserData).where(UserData.email == email)
         result = session.exec(statement).first()
 
+        if result is None:
+            return {'success': False}
+
         del result.password
         del result.age
 

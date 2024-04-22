@@ -20,6 +20,9 @@ class classEditWriting:
             results = session.exec(statement)
             user_data = results.first()
 
+            if user_data is None:
+                return {'success': False, 'message': 'no_such_user'}
+
             if hb:
                 statement = select(HiddenWriting).where(HiddenWriting.path == writing_model.path)
                 results = session.exec(statement)
@@ -29,50 +32,41 @@ class classEditWriting:
 
             writing_data = results.first()
 
-            if writing_data is None:
-                if hb:
-                    statement = select(HiddenMainWriting).where(HiddenMainWriting.path == writing_model.path)
-                    results = session.exec(statement)
-                else:
-                    statement = select(MainWriting).where(WritingData.path == writing_model.path)
-                    results = session.exec(statement)
-                writing_data = results.first()
+            if writing_data is None:  # 이전 문서가 없을 때?
+                now = datetime.now()
 
-                if writing_data is None:
-                    return {'success': False, 'msg': 'no_writing'}
-
-                if not write_auth.is_writable(user_data.authority, writing_data.authority):  # = 해당 유저가 그 글에 쓰기 권한이 없는 지
-                    return {'success': False, 'msg': 'no_authority'}
-
-                archive_writing = ArchiveMainWriting(
-                    path=writing_data.path,
-                    authority=writing_data.authority,
-                    option=writing_data.option,
-                    category=writing_data.category,
-                    now_id=writing_data.id,
-                    version=writing_data.version,
-                    writer=writing_data.writer,
-                    content=writing_data.content,
-                    recent_edit=writing_data.recent_edit,
-                    message=message,
+                insert_writing = WritingData(
+                    authority=3330,  # TODO: 나중엔 authority 수정 할 수 있게 (관리자만)
+                    option=1,
+                    category='',
+                    version=1,
+                    writer=user_data.name,
+                    path=writing_model.path,
+                    content=writing_model.content,
+                    recent_edit=now.strftime('%Y%m%d%H%M%S'),
                 )
 
-            else:
-                if not write_auth.is_writable(user_data.authority, writing_data.authority):  # = 해당 유저가 그 글에 쓰기 권한이 없는 지
-                    return {'success': False, 'msg': 'no_authority'}
+                session.add(insert_writing)
+                session.commit()
+                session.refresh(insert_writing)
 
-                archive_writing = ArchiveWriting(
-                    authority=writing_data.authority,
-                    option=writing_data.option,
-                    category=writing_data.category,
-                    now_id=writing_data.id,
-                    version=writing_data.version,
-                    writer=writing_data.writer,
-                    path=writing_data.path,
-                    content=writing_data.content,
-                    recent_edit=writing_data.recent_edit,
-                    message=message,
-                )
+                return {'success': True}
+
+            if not write_auth.is_writable(user_data.authority, writing_data.authority):  # = 해당 유저가 그 글에 쓰기 권한이 없는 지
+                return {'success': False, 'msg': 'no_authority'}
+
+            archive_writing = ArchiveWriting(
+                authority=writing_data.authority,
+                option=writing_data.option,
+                category=writing_data.category,
+                now_id=writing_data.id,
+                version=writing_data.version,
+                writer=writing_data.writer,
+                path=writing_data.path,
+                content=writing_data.content,
+                recent_edit=writing_data.recent_edit,
+                message=message,
+            )
 
             session.add(archive_writing)
             session.commit()

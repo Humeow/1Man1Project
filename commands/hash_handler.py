@@ -27,4 +27,5 @@ class hash_class:
 hasher = hash_class()
 
 if __name__ == '__main__':
+    print(hasher.hash_make('rururu0419'))
     pass

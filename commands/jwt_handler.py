@@ -13,7 +13,7 @@ class classTokenizer:
         self.token = ''.join(random.sample('abcdefghijklmnopqrstuvwxyz'
                                            'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
                                            '1234567890-=!@#$%^&*()_+', 15))
-        self.token = ''  # TODO: 실 서비스시에 없애기
+        # self.token = ''  # TODO: 실 서비스시에 없애기
         # self.access_expires = datetime.timedelta(hours=2)
         self.access_expires = datetime.timedelta(seconds=10)
         self.refresh_expires = datetime.timedelta(days=14)

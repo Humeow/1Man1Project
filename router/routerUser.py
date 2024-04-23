@@ -19,7 +19,10 @@ async def user_information(request: Request, response: Response,
                      access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     is_access_valid = tokenizer.validate_token(access, refresh)
     if not is_access_valid['success']:
-        return is_access_valid
+        return {'success': False,
+                'data': UserData(
+                    authority=4,
+                )}
 
     if is_access_valid['is_refreshed']:
         response.set_cookie(key='access', value=is_access_valid['new_access'][0],

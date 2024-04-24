@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 path = os.environ.get('DB_PATH', 'sqlite:///db/database.sqlite3')
+print('DB_PATH:', path)
 
 path = path.strip()
 

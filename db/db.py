@@ -3,6 +3,10 @@ from sqlmodel import SQLModel
 
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 path = os.environ.get('DB_PATH', 'sqlite:///db/database.sqlite3')
 
 path = path.strip()

@@ -106,6 +106,9 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
         statement = select(WritingData).where(WritingData.path == path)
         writing_data = session.exec(statement).first()
 
+        if writing_data is None:
+            return {'success': False, 'data': fail_data}
+
         if not is_access_valid['success']:
             if write_auth.is_readable(everyone_auth, writing_data.authority):
                 writing_data = writing_data.__dict__

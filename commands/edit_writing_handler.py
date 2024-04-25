@@ -7,6 +7,7 @@ from datetime import datetime
 
 from commands.writeauth_handler import write_auth
 
+hb_make_auth = 3300
 
 class classEditWriting:
     async def edit_with_archive(self, writing_model: WritingData, user: UserData, message, hb: bool = False):
@@ -24,8 +25,13 @@ class classEditWriting:
                 return {'success': False, 'message': 'no_such_user'}
 
             if hb:
-                statement = select(HiddenWriting).where(HiddenWriting.path == writing_model.path)
-                results = session.exec(statement)
+                if write_auth.is_readable(user_data.authority, hb_make_auth):
+                    statement = select(HiddenWriting).where(HiddenWriting.path == writing_model.path)
+                    results = session.exec(statement)
+                else:
+                    statement = select(WritingData).where(WritingData.path == writing_model.path)
+                    results = session.exec(statement)
+
             else:
                 statement = select(WritingData).where(WritingData.path == writing_model.path)
                 results = session.exec(statement)
@@ -45,6 +51,18 @@ class classEditWriting:
                     content=writing_model.content,
                     recent_edit=now.strftime('%Y%m%d%H%M%S'),
                 )
+                if hb:
+                    if write_auth.is_readable(user_data.authority, hb_make_auth):
+                        insert_writing = HiddenWriting(
+                            authority=3300,  # TODO: 나중엔 authority 수정 할 수 있게 (관리자만)
+                            option=1,
+                            category='',
+                            version=1,
+                            writer=user_data.name,
+                            path=writing_model.path,
+                            content=writing_model.content,
+                            recent_edit=now.strftime('%Y%m%d%H%M%S'),
+                        )
 
                 session.add(insert_writing)
                 session.commit()
@@ -55,18 +73,33 @@ class classEditWriting:
             if not write_auth.is_writable(user_data.authority, writing_data.authority):  # = 해당 유저가 그 글에 쓰기 권한이 없는 지
                 return {'success': False, 'msg': 'no_authority'}
 
-            archive_writing = ArchiveWriting(
-                authority=writing_data.authority,
-                option=writing_data.option,
-                category=writing_data.category,
-                now_id=writing_data.id,
-                version=writing_data.version,
-                writer=writing_data.writer,
-                path=writing_data.path,
-                content=writing_data.content,
-                recent_edit=writing_data.recent_edit,
-                message=message,
-            )
+            if hb:
+                archive_writing = HiddenArchiveWriting(
+                    authority=writing_data.authority,
+                    option=writing_data.option,
+                    category=writing_data.category,
+                    now_id=writing_data.id,
+                    version=writing_data.version,
+                    writer=writing_data.writer,
+                    path=writing_data.path,
+                    content=writing_data.content,
+                    recent_edit=writing_data.recent_edit,
+                    message=message,
+                )
+
+            else:
+                archive_writing = ArchiveWriting(
+                    authority=writing_data.authority,
+                    option=writing_data.option,
+                    category=writing_data.category,
+                    now_id=writing_data.id,
+                    version=writing_data.version,
+                    writer=writing_data.writer,
+                    path=writing_data.path,
+                    content=writing_data.content,
+                    recent_edit=writing_data.recent_edit,
+                    message=message,
+                )
 
             session.add(archive_writing)
             session.commit()

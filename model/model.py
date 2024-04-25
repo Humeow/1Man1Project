@@ -59,20 +59,6 @@ class ArchiveWriting(SQLModel, table=True):  # 아직 미구현
     message: str
 
 
-class ArchiveMainWriting(SQLModel, table=True):
-    id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
-    path: str
-    authority: int
-    option: str
-    now_id: int
-    category: str
-    version: int = Field(unique=True)
-    writer: str
-    content: str
-    recent_edit: str = Field(unique=True)  # recent edited date
-    message: str
-
-
 class HiddenWriting(SQLModel, table=True):
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
     authority: int  # NNN 형식, 리눅스처럼 읽기/쓰기 순으로 333(관리자,조금 강한 유저,유저).
@@ -85,14 +71,14 @@ class HiddenWriting(SQLModel, table=True):
     recent_edit: str  # recent edited date
 
 
-class HiddenMainWriting(SQLModel, table=True):
+class HiddenArchiveWriting(SQLModel, table=True):
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
-    path: str
-    authority: int
-    option: str
+    authority: int  # NNN 형식, 리눅스처럼 읽기/쓰기 순으로 333(관리자,조금 강한 유저,유저).
+    option: int  # 0: None, 1: 분류
     category: str
     version: int
     writer: str
+    path: str = Field(unique=True)  # ~/~/~
     content: str
     recent_edit: str  # recent edited date
 

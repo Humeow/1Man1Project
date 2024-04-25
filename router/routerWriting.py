@@ -193,6 +193,42 @@ async def write_is_exist(request: Request, path: str):
     return json.dumps(ans, ensure_ascii=False)
 
 
+@router.post("/write/history")  # TODO: 여유 있으면..
+async def write_history(request: Request, response: Response, path: str, hb: bool = False,
+                       access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
+    path = path.strip()
+    if path == 'undefined':
+        path = '웹플위키-대문'
+
+    is_access_valid = tokenizer.validate_token(access, refresh)
+    result = []
+
+    if not is_access_valid['success']:
+        return {'success': False}
+
+    if is_access_valid['is_refreshed']:
+        response.set_cookie(key='access', value=is_access_valid['new_access'][0],
+                            expires=is_access_valid['new_access'][1])
+
+    with Session(engine) as session:
+        statement = select(UserData).where(UserData.email == is_access_valid['token']['sub'])
+        user_data = session.exec(statement).first()
+
+        if hb:
+            statement = select(HiddenArchiveWriting).where(HiddenArchiveWriting.path == path)
+            writing_datas = session.exec(statement)
+        else:
+            statement = select(ArchiveWriting).where(ArchiveWriting.path == path)
+            writing_datas = session.exec(statement)
+
+        userauth = user_data.authority
+        for writing_data in writing_datas:
+            if write_auth.is_readable(userauth, writing_data.authority):
+                result.append(writing_data)
+
+        return result
+
+
 @router.api_route("/w/{path_name:path}", methods=["GET"])  # 위키 글 화면
 async def write_output_likewiki(request: Request, path_name: str):
     return templates.TemplateResponse("index.html", context={"request": request})

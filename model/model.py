@@ -33,18 +33,6 @@ class WritingData(SQLModel, table=True):
     recent_edit: str  # recent edited date
 
 
-class MainWriting(SQLModel, table=True):  # TODO: 변경 사유 Archive랑 같이 만들기
-    id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
-    path: str
-    authority: int
-    option: str
-    category: str
-    version: int
-    writer: str
-    content: str
-    recent_edit: str  # recent edited date
-
-
 class ArchiveWriting(SQLModel, table=True):  # 아직 미구현
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
     authority: int

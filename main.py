@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, FileResponse
 from fastapi import status
 
 from fastapi.staticfiles import StaticFiles
@@ -57,14 +57,24 @@ glovar.tokenizer = classTokenizer()
 #     return {"message": "Hello!"}
 
 
+@app.get('/favicon.png', include_in_schema=False)
+async def favicon():
+    return FileResponse('/static/favicon.png')
+
+
 @app.get("/", response_class=HTMLResponse)
-def index(request: Request):
+def main(request: Request):
     return templates.TemplateResponse("index.html", context={"request": request})
 
 
 @app.get("/login", response_class=HTMLResponse)
-def index(request: Request):
+def login(request: Request):
     return templates.TemplateResponse("login.html", context={"request": request})
+
+
+@app.get("/history", response_class=HTMLResponse)
+def history(request: Request):
+    return templates.TemplateResponse("history.html", context={"request": request})
 
 #===== router sync start =====#
 for file in os.listdir("./router"):

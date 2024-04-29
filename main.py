@@ -59,7 +59,7 @@ glovar.tokenizer = classTokenizer()
 
 @app.get('/favicon.png', include_in_schema=False)
 async def favicon():
-    return FileResponse('/static/favicon.png')
+    return FileResponse('./static/favicon.png')
 
 
 @app.get("/", response_class=HTMLResponse)

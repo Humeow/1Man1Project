@@ -64,6 +64,8 @@ async def favicon():
 
 @app.get("/", response_class=HTMLResponse)
 def main(request: Request):
+    client_host = request.client.host
+    print(client_host)
     return templates.TemplateResponse("index.html", context={"request": request})
 
 

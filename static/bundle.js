@@ -3019,7 +3019,7 @@ var app = (function () {
     const file$f = "src/components/Home/Header.svelte";
 
     // (34:12) {:else}
-    function create_else_block_2$2(ctx) {
+    function create_else_block_2$1(ctx) {
     	let div;
 
     	const block = {
@@ -3038,7 +3038,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_2$2.name,
+    		id: create_else_block_2$1.name,
     		type: "else",
     		source: "(34:12) {:else}",
     		ctx
@@ -3351,7 +3351,7 @@ var app = (function () {
 
     	function select_block_type(ctx, dirty) {
     		if (/*writeOutput*/ ctx[1].success) return create_if_block_2$2;
-    		return create_else_block_2$2;
+    		return create_else_block_2$1;
     	}
 
     	let current_block_type = select_block_type(ctx);
@@ -4190,24 +4190,17 @@ var app = (function () {
     	return child_ctx;
     }
 
-    function get_else_ctx$1(ctx) {
+    function get_if_ctx_3(ctx) {
     	const child_ctx = ctx.slice();
     	const constants_0 = /*splitMatchContent*/ child_ctx[9][1].split('|');
-    	child_ctx[10] = constants_0;
+    	child_ctx[11] = constants_0;
     	return child_ctx;
     }
 
     function get_if_ctx$2(ctx) {
     	const child_ctx = ctx.slice();
-    	const constants_0 = /*splitMatchContent*/ child_ctx[9][2].split('|');
+    	const constants_0 = /*splitMatchContent*/ child_ctx[9].slice(1).join(':').split('|');
     	child_ctx[10] = constants_0;
-    	return child_ctx;
-    }
-
-    function get_if_ctx_3(ctx) {
-    	const child_ctx = ctx.slice();
-    	const constants_0 = /*splitMatchContent*/ child_ctx[9][1].split('|');
-    	child_ctx[11] = constants_0;
     	return child_ctx;
     }
 
@@ -4247,7 +4240,7 @@ var app = (function () {
 
     function get_if_ctx_4(ctx) {
     	const child_ctx = ctx.slice();
-    	const constants_0 = /*splitMatchContent*/ child_ctx[9][1].split('|');
+    	const constants_0 = /*splitMatchContent*/ child_ctx[9].slice(1).join(':').split('|');
     	child_ctx[10] = constants_0;
     	return child_ctx;
     }
@@ -4436,6 +4429,7 @@ var app = (function () {
     	}
 
     	function select_block_ctx(ctx, index) {
+    		if (index === 1) return get_if_ctx$2(ctx);
     		if (index === 3) return get_if_ctx_3(ctx);
     		return ctx;
     	}
@@ -4462,7 +4456,7 @@ var app = (function () {
     			span = element("span");
     			t3 = text(t3_value);
     			attr_dev(span, "class", "text_content svelte-654og0");
-    			add_location(span, file$b, 113, 16, 6757);
+    			add_location(span, file$b, 112, 16, 6675);
     		},
     		m: function mount(target, anchor) {
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
@@ -4596,7 +4590,7 @@ var app = (function () {
     }
 
     // (32:20) {:else}
-    function create_else_block_2$1(ctx) {
+    function create_else_block_1$1(ctx) {
     	let span;
     	let t_value = /*firstContextSplit*/ ctx[19] + "";
     	let t;
@@ -4622,7 +4616,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_2$1.name,
+    		id: create_else_block_1$1.name,
     		type: "else",
     		source: "(32:20) {:else}",
     		ctx
@@ -4671,7 +4665,7 @@ var app = (function () {
 
     	function select_block_type_2(ctx, dirty) {
     		if (/*firstContextSplit*/ ctx[19] === '') return create_if_block_26;
-    		return create_else_block_2$1;
+    		return create_else_block_1$1;
     	}
 
     	let current_block_type = select_block_type_2(ctx);
@@ -4777,9 +4771,9 @@ var app = (function () {
     			a = element("a");
     			img = element("img");
     			attr_dev(img, "href", /*splitMatchContent*/ ctx[9][1]);
-    			add_location(img, file$b, 58, 52, 2992);
+    			add_location(img, file$b, 58, 52, 3014);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 58, 28, 2968);
+    			add_location(a, file$b, 58, 28, 2990);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -4919,11 +4913,11 @@ var app = (function () {
     			t2 = text("[");
     			t3 = text(t3_value);
     			t4 = text("]");
-    			add_location(sup, file$b, 68, 166, 3913);
+    			add_location(sup, file$b, 68, 166, 3935);
     			attr_dev(a, "href", "#bottom_footnote_" + /*splitFootnote*/ ctx[11][1]);
     			attr_dev(a, "id", a_id_value = "" + (/*textFootnote*/ ctx[13][0] + "-" + (/*textFootnote*/ ctx[13][2] - /*countFootnote*/ ctx[14])));
     			attr_dev(a, "class", "footnote text_content svelte-654og0");
-    			add_location(a, file$b, 68, 32, 3779);
+    			add_location(a, file$b, 68, 32, 3801);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -4976,10 +4970,10 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 64, 108, 3470);
+    			add_location(sup, file$b, 64, 108, 3492);
     			attr_dev(a, "href", a_href_value = "#bottom_footnote_" + /*numberParagraph*/ ctx[12]);
     			attr_dev(a, "class", "footnote text_content svelte-654og0");
-    			add_location(a, file$b, 64, 32, 3394);
+    			add_location(a, file$b, 64, 32, 3416);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5021,9 +5015,9 @@ var app = (function () {
     		c: function create() {
     			a = element("a");
     			t = text(t_value);
-    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "href", "/w/" + /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 54, 36, 2737);
+    			add_location(a, file$b, 54, 36, 2756);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5056,9 +5050,9 @@ var app = (function () {
     		c: function create() {
     			a = element("a");
     			t = text(t_value);
-    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "href", "/w/" + /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 52, 36, 2568);
+    			add_location(a, file$b, 52, 36, 2584);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5137,7 +5131,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content url_link svelte-654og0");
-    			add_location(a, file$b, 48, 36, 2321);
+    			add_location(a, file$b, 48, 36, 2337);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5172,7 +5166,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content url_link svelte-654og0");
-    			add_location(a, file$b, 46, 36, 2143);
+    			add_location(a, file$b, 46, 36, 2159);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5232,7 +5226,7 @@ var app = (function () {
     			span = element("span");
     			t1 = text(t1_value);
     			attr_dev(span, "class", "text_content svelte-654og0");
-    			add_location(span, file$b, 73, 20, 4063);
+    			add_location(span, file$b, 73, 20, 4085);
     		},
     		m: function mount(target, anchor) {
     			if (~current_block_type_index) {
@@ -5278,11 +5272,11 @@ var app = (function () {
     	return block;
     }
 
-    // (102:61) 
+    // (101:61) 
     function create_if_block_12(ctx) {
     	let if_block_anchor;
 
-    	function select_block_type_11(ctx, dirty) {
+    	function select_block_type_10(ctx, dirty) {
     		if (/*splitFootnote*/ ctx[11].length === 1) return create_if_block_13;
     		if (/*splitFootnote*/ ctx[11].length === 2) return create_if_block_14;
     	}
@@ -5292,7 +5286,7 @@ var app = (function () {
     		if (type === create_if_block_14) return get_if_ctx_2(ctx);
     	}
 
-    	let current_block_type = select_block_type_11(ctx);
+    	let current_block_type = select_block_type_10(ctx);
     	let if_block = current_block_type && current_block_type(select_block_ctx(ctx, current_block_type));
 
     	const block = {
@@ -5322,14 +5316,14 @@ var app = (function () {
     		block,
     		id: create_if_block_12.name,
     		type: "if",
-    		source: "(102:61) ",
+    		source: "(101:61) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:61) 
+    // (98:61) 
     function create_if_block_11(ctx) {
     	let a;
     	let img;
@@ -5339,9 +5333,9 @@ var app = (function () {
     			a = element("a");
     			img = element("img");
     			attr_dev(img, "href", /*splitMatchContent*/ ctx[9][1]);
-    			add_location(img, file$b, 99, 48, 5762);
+    			add_location(img, file$b, 98, 48, 5680);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 99, 24, 5738);
+    			add_location(a, file$b, 98, 24, 5656);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5359,7 +5353,7 @@ var app = (function () {
     		block,
     		id: create_if_block_11.name,
     		type: "if",
-    		source: "(99:61) ",
+    		source: "(98:61) ",
     		ctx
     	});
 
@@ -5371,34 +5365,33 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_8(ctx, dirty) {
-    		if (/*splitMatchContent*/ ctx[9][1].startsWith('http')) return create_if_block_6;
-    		return create_else_block_1$1;
-    	}
-
-    	function select_block_ctx(ctx, type) {
-    		if (type === create_if_block_6) return get_if_ctx$2(ctx);
-    		return get_else_ctx$1(ctx);
+    		if (/*splitLink*/ ctx[10][0].startsWith('http://') || /*splitLink*/ ctx[10][0].startsWith('https://')) return create_if_block_6;
+    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_9;
+    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_10;
     	}
 
     	let current_block_type = select_block_type_8(ctx);
-    	let if_block = current_block_type(select_block_ctx(ctx, current_block_type));
+    	let if_block = current_block_type && current_block_type(ctx);
 
     	const block = {
     		c: function create() {
-    			if_block.c();
+    			if (if_block) if_block.c();
     			if_block_anchor = empty();
     		},
     		m: function mount(target, anchor) {
-    			if_block.m(target, anchor);
+    			if (if_block) if_block.m(target, anchor);
     			insert_dev(target, if_block_anchor, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if_block.p(select_block_ctx(ctx, current_block_type), dirty);
+    			if (if_block) if_block.p(ctx, dirty);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if_block.d(detaching);
+    			if (if_block) {
+    				if_block.d(detaching);
+    			}
+
     			if (detaching) detach_dev(if_block_anchor);
     		}
     	};
@@ -5460,7 +5453,7 @@ var app = (function () {
     	return block;
     }
 
-    // (107:63) 
+    // (106:63) 
     function create_if_block_14(ctx) {
     	let a;
     	let sup;
@@ -5477,11 +5470,11 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 109, 162, 6624);
+    			add_location(sup, file$b, 108, 162, 6542);
     			attr_dev(a, "href", "#bottom_footnote_" + /*splitFootnote*/ ctx[11][1]);
     			attr_dev(a, "id", a_id_value = "" + (/*textFootnote*/ ctx[13][0] + "-" + (/*textFootnote*/ ctx[13][2] - /*countFootnote*/ ctx[14])));
     			attr_dev(a, "class", "footnote text_content svelte-654og0");
-    			add_location(a, file$b, 109, 28, 6490);
+    			add_location(a, file$b, 108, 28, 6408);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5504,14 +5497,14 @@ var app = (function () {
     		block,
     		id: create_if_block_14.name,
     		type: "if",
-    		source: "(107:63) ",
+    		source: "(106:63) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (104:24) {#if (splitFootnote.length === 1)}
+    // (103:24) {#if (splitFootnote.length === 1)}
     function create_if_block_13(ctx) {
     	let a;
     	let sup;
@@ -5528,10 +5521,10 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 105, 104, 6201);
+    			add_location(sup, file$b, 104, 104, 6119);
     			attr_dev(a, "href", a_href_value = "#bottom_footnote_" + /*numberParagraph*/ ctx[12]);
     			attr_dev(a, "class", "footnote text_content svelte-654og0");
-    			add_location(a, file$b, 105, 28, 6125);
+    			add_location(a, file$b, 104, 28, 6043);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5556,58 +5549,84 @@ var app = (function () {
     		block,
     		id: create_if_block_13.name,
     		type: "if",
-    		source: "(104:24) {#if (splitFootnote.length === 1)}",
+    		source: "(103:24) {#if (splitFootnote.length === 1)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:24) {:else}
-    function create_else_block_1$1(ctx) {
-    	let if_block_anchor;
-
-    	function select_block_type_10(ctx, dirty) {
-    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_9;
-    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_10;
-    	}
-
-    	let current_block_type = select_block_type_10(ctx);
-    	let if_block = current_block_type && current_block_type(ctx);
+    // (94:63) 
+    function create_if_block_10(ctx) {
+    	let a;
+    	let t_value = /*splitLink*/ ctx[10][1] + "";
+    	let t;
 
     	const block = {
     		c: function create() {
-    			if (if_block) if_block.c();
-    			if_block_anchor = empty();
+    			a = element("a");
+    			t = text(t_value);
+    			attr_dev(a, "href", "/w/" + /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "class", "text_content svelte-654og0");
+    			add_location(a, file$b, 94, 32, 5438);
     		},
     		m: function mount(target, anchor) {
-    			if (if_block) if_block.m(target, anchor);
-    			insert_dev(target, if_block_anchor, anchor);
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
     		},
-    		p: function update(ctx, dirty) {
-    			if (if_block) if_block.p(ctx, dirty);
-    		},
+    		p: noop,
     		d: function destroy(detaching) {
-    			if (if_block) {
-    				if_block.d(detaching);
-    			}
-
-    			if (detaching) detach_dev(if_block_anchor);
+    			if (detaching) detach_dev(a);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_else_block_1$1.name,
-    		type: "else",
-    		source: "(91:24) {:else}",
+    		id: create_if_block_10.name,
+    		type: "if",
+    		source: "(94:63) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:24) {#if (splitMatchContent[1].startsWith('http'))}
+    // (92:28) {#if (splitLink.length === 1)}
+    function create_if_block_9(ctx) {
+    	let a;
+    	let t_value = /*splitLink*/ ctx[10][0] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			attr_dev(a, "href", "/w/" + /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "class", "text_content svelte-654og0");
+    			add_location(a, file$b, 92, 32, 5274);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_9.name,
+    		type: "if",
+    		source: "(92:28) {#if (splitLink.length === 1)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (85:24) {#if (splitLink[0].startsWith('http://') || splitLink[0].startsWith('https://'))}
     function create_if_block_6(ctx) {
     	let if_block_anchor;
 
@@ -5644,77 +5663,7 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(84:24) {#if (splitMatchContent[1].startsWith('http'))}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (95:63) 
-    function create_if_block_10(ctx) {
-    	let a;
-    	let t_value = /*splitLink*/ ctx[10][1] + "";
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			a = element("a");
-    			t = text(t_value);
-    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
-    			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 95, 32, 5523);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, a, anchor);
-    			append_dev(a, t);
-    		},
-    		p: noop,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(a);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block_10.name,
-    		type: "if",
-    		source: "(95:63) ",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (93:28) {#if (splitLink.length === 1)}
-    function create_if_block_9(ctx) {
-    	let a;
-    	let t_value = /*splitLink*/ ctx[10][0] + "";
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			a = element("a");
-    			t = text(t_value);
-    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
-    			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 93, 32, 5362);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, a, anchor);
-    			append_dev(a, t);
-    		},
-    		p: noop,
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(a);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block_9.name,
-    		type: "if",
-    		source: "(93:28) {#if (splitLink.length === 1)}",
+    		source: "(85:24) {#if (splitLink[0].startsWith('http://') || splitLink[0].startsWith('https://'))}",
     		ctx
     	});
 
@@ -5731,9 +5680,9 @@ var app = (function () {
     		c: function create() {
     			a = element("a");
     			t = text(t_value);
-    			attr_dev(a, "href", /*splitMatchContent*/ ctx[9][1] + ':' + /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content url_link svelte-654og0");
-    			add_location(a, file$b, 88, 32, 5025);
+    			add_location(a, file$b, 88, 32, 5043);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5759,16 +5708,16 @@ var app = (function () {
     // (86:28) {#if (splitLink.length === 1)}
     function create_if_block_7(ctx) {
     	let a;
-    	let t_value = /*splitMatchContent*/ ctx[9][1] + ':' + /*splitLink*/ ctx[10][0] + "";
+    	let t_value = /*splitLink*/ ctx[10][0] + "";
     	let t;
 
     	const block = {
     		c: function create() {
     			a = element("a");
     			t = text(t_value);
-    			attr_dev(a, "href", /*splitMatchContent*/ ctx[9][1] + ':' + /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content url_link svelte-654og0");
-    			add_location(a, file$b, 86, 32, 4805);
+    			add_location(a, file$b, 86, 32, 4873);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);

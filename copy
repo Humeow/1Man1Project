@@ -1,0 +1,1 @@
+cp ../1M1P-frontend/public/build/* ./static

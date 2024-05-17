@@ -4417,7 +4417,7 @@ var app = (function () {
     		each_blocks[i] = null;
     	});
 
-    	const if_block_creators = [create_if_block_4, create_if_block_5, create_if_block_11, create_if_block_12];
+    	const if_block_creators = [create_if_block_4, create_if_block_5, create_if_block_17, create_if_block_18];
     	const if_blocks = [];
 
     	function select_block_type_7(ctx, dirty) {
@@ -4456,7 +4456,7 @@ var app = (function () {
     			span = element("span");
     			t3 = text(t3_value);
     			attr_dev(span, "class", "text_content svelte-654og0");
-    			add_location(span, file$b, 112, 16, 6675);
+    			add_location(span, file$b, 128, 16, 7767);
     		},
     		m: function mount(target, anchor) {
     			for (let i = 0; i < each_blocks_1.length; i += 1) {
@@ -4626,7 +4626,7 @@ var app = (function () {
     }
 
     // (30:20) {#if firstContextSplit === ''}
-    function create_if_block_26(ctx) {
+    function create_if_block_32(ctx) {
     	let span;
     	let br;
 
@@ -4650,7 +4650,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_26.name,
+    		id: create_if_block_32.name,
     		type: "if",
     		source: "(30:20) {#if firstContextSplit === ''}",
     		ctx
@@ -4664,7 +4664,7 @@ var app = (function () {
     	let if_block_anchor;
 
     	function select_block_type_2(ctx, dirty) {
-    		if (/*firstContextSplit*/ ctx[19] === '') return create_if_block_26;
+    		if (/*firstContextSplit*/ ctx[19] === '') return create_if_block_32;
     		return create_else_block_1$1;
     	}
 
@@ -4711,17 +4711,17 @@ var app = (function () {
     }
 
     // (61:65) 
-    function create_if_block_23(ctx) {
+    function create_if_block_29(ctx) {
     	let if_block_anchor;
 
     	function select_block_type_6(ctx, dirty) {
-    		if (/*splitFootnote*/ ctx[11].length === 1) return create_if_block_24;
-    		if (/*splitFootnote*/ ctx[11].length === 2) return create_if_block_25;
+    		if (/*splitFootnote*/ ctx[11].length === 1) return create_if_block_30;
+    		if (/*splitFootnote*/ ctx[11].length === 2) return create_if_block_31;
     	}
 
     	function select_block_ctx(ctx, type) {
-    		if (type === create_if_block_24) return get_if_ctx_5(ctx);
-    		if (type === create_if_block_25) return get_if_ctx_6(ctx);
+    		if (type === create_if_block_30) return get_if_ctx_5(ctx);
+    		if (type === create_if_block_31) return get_if_ctx_6(ctx);
     	}
 
     	let current_block_type = select_block_type_6(ctx);
@@ -4752,7 +4752,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_23.name,
+    		id: create_if_block_29.name,
     		type: "if",
     		source: "(61:65) ",
     		ctx
@@ -4762,7 +4762,7 @@ var app = (function () {
     }
 
     // (58:65) 
-    function create_if_block_22(ctx) {
+    function create_if_block_28(ctx) {
     	let a;
     	let img;
 
@@ -4789,7 +4789,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_22.name,
+    		id: create_if_block_28.name,
     		type: "if",
     		source: "(58:65) ",
     		ctx
@@ -4799,13 +4799,13 @@ var app = (function () {
     }
 
     // (43:24) {#if (splitMatchContent[0] === 'L')}
-    function create_if_block_16(ctx) {
+    function create_if_block_22(ctx) {
     	let if_block_anchor;
 
     	function select_block_type_4(ctx, dirty) {
-    		if (/*splitLink*/ ctx[10][0].startsWith('http://') || /*splitLink*/ ctx[10][0].startsWith('https://')) return create_if_block_17;
-    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_20;
-    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_21;
+    		if (/*splitLink*/ ctx[10][0].startsWith('http://') || /*splitLink*/ ctx[10][0].startsWith('https://')) return create_if_block_23;
+    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_26;
+    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_27;
     	}
 
     	let current_block_type = select_block_type_4(ctx);
@@ -4836,7 +4836,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_16.name,
+    		id: create_if_block_22.name,
     		type: "if",
     		source: "(43:24) {#if (splitMatchContent[0] === 'L')}",
     		ctx
@@ -4846,7 +4846,7 @@ var app = (function () {
     }
 
     // (40:20) {#if (splitMatchContent[0] === 'O')}
-    function create_if_block_15(ctx) {
+    function create_if_block_21(ctx) {
     	let texthighlights;
     	let current;
 
@@ -4882,7 +4882,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_15.name,
+    		id: create_if_block_21.name,
     		type: "if",
     		source: "(40:20) {#if (splitMatchContent[0] === 'O')}",
     		ctx
@@ -4892,7 +4892,7 @@ var app = (function () {
     }
 
     // (66:67) 
-    function create_if_block_25(ctx) {
+    function create_if_block_31(ctx) {
     	let t0_value = --/*textFootnote*/ ctx[13][1] + "";
     	let t0;
     	let t1;
@@ -4944,7 +4944,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_25.name,
+    		id: create_if_block_31.name,
     		type: "if",
     		source: "(66:67) ",
     		ctx
@@ -4954,7 +4954,7 @@ var app = (function () {
     }
 
     // (63:28) {#if (splitFootnote.length === 1)}
-    function create_if_block_24(ctx) {
+    function create_if_block_30(ctx) {
     	let a;
     	let sup;
     	let t0;
@@ -4996,7 +4996,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_24.name,
+    		id: create_if_block_30.name,
     		type: "if",
     		source: "(63:28) {#if (splitFootnote.length === 1)}",
     		ctx
@@ -5006,7 +5006,7 @@ var app = (function () {
     }
 
     // (54:67) 
-    function create_if_block_21(ctx) {
+    function create_if_block_27(ctx) {
     	let a;
     	let t_value = /*splitLink*/ ctx[10][1] + "";
     	let t;
@@ -5031,7 +5031,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_21.name,
+    		id: create_if_block_27.name,
     		type: "if",
     		source: "(54:67) ",
     		ctx
@@ -5041,7 +5041,7 @@ var app = (function () {
     }
 
     // (52:32) {#if (splitLink.length === 1)}
-    function create_if_block_20(ctx) {
+    function create_if_block_26(ctx) {
     	let a;
     	let t_value = /*splitLink*/ ctx[10][0] + "";
     	let t;
@@ -5066,7 +5066,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_20.name,
+    		id: create_if_block_26.name,
     		type: "if",
     		source: "(52:32) {#if (splitLink.length === 1)}",
     		ctx
@@ -5076,12 +5076,12 @@ var app = (function () {
     }
 
     // (45:28) {#if (splitLink[0].startsWith('http://') || splitLink[0].startsWith('https://'))}
-    function create_if_block_17(ctx) {
+    function create_if_block_23(ctx) {
     	let if_block_anchor;
 
     	function select_block_type_5(ctx, dirty) {
-    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_18;
-    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_19;
+    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_24;
+    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_25;
     	}
 
     	let current_block_type = select_block_type_5(ctx);
@@ -5110,7 +5110,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_17.name,
+    		id: create_if_block_23.name,
     		type: "if",
     		source: "(45:28) {#if (splitLink[0].startsWith('http://') || splitLink[0].startsWith('https://'))}",
     		ctx
@@ -5120,7 +5120,7 @@ var app = (function () {
     }
 
     // (48:67) 
-    function create_if_block_19(ctx) {
+    function create_if_block_25(ctx) {
     	let a;
     	let t_value = /*splitLink*/ ctx[10][1] + "";
     	let t;
@@ -5145,7 +5145,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_19.name,
+    		id: create_if_block_25.name,
     		type: "if",
     		source: "(48:67) ",
     		ctx
@@ -5155,7 +5155,7 @@ var app = (function () {
     }
 
     // (46:32) {#if (splitLink.length === 1)}
-    function create_if_block_18(ctx) {
+    function create_if_block_24(ctx) {
     	let a;
     	let t_value = /*splitLink*/ ctx[10][0] + "";
     	let t;
@@ -5180,7 +5180,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_18.name,
+    		id: create_if_block_24.name,
     		type: "if",
     		source: "(46:32) {#if (splitLink.length === 1)}",
     		ctx
@@ -5198,7 +5198,7 @@ var app = (function () {
     	let t1_value = /*splitContent*/ ctx[0].slice(/*matchContent*/ ctx[16].index + /*matchContent*/ ctx[16][0].length, /*matchesContent*/ ctx[3][/*countMatchContent*/ ctx[18] + 1].index) + "";
     	let t1;
     	let current;
-    	const if_block_creators = [create_if_block_15, create_if_block_16, create_if_block_22, create_if_block_23];
+    	const if_block_creators = [create_if_block_21, create_if_block_22, create_if_block_28, create_if_block_29];
     	const if_blocks = [];
 
     	function select_block_type_3(ctx, dirty) {
@@ -5272,21 +5272,21 @@ var app = (function () {
     	return block;
     }
 
-    // (101:61) 
-    function create_if_block_12(ctx) {
+    // (117:61) 
+    function create_if_block_18(ctx) {
     	let if_block_anchor;
 
-    	function select_block_type_10(ctx, dirty) {
-    		if (/*splitFootnote*/ ctx[11].length === 1) return create_if_block_13;
-    		if (/*splitFootnote*/ ctx[11].length === 2) return create_if_block_14;
+    	function select_block_type_12(ctx, dirty) {
+    		if (/*splitFootnote*/ ctx[11].length === 1) return create_if_block_19;
+    		if (/*splitFootnote*/ ctx[11].length === 2) return create_if_block_20;
     	}
 
     	function select_block_ctx(ctx, type) {
-    		if (type === create_if_block_13) return get_if_ctx_1(ctx);
-    		if (type === create_if_block_14) return get_if_ctx_2(ctx);
+    		if (type === create_if_block_19) return get_if_ctx_1(ctx);
+    		if (type === create_if_block_20) return get_if_ctx_2(ctx);
     	}
 
-    	let current_block_type = select_block_type_10(ctx);
+    	let current_block_type = select_block_type_12(ctx);
     	let if_block = current_block_type && current_block_type(select_block_ctx(ctx, current_block_type));
 
     	const block = {
@@ -5314,17 +5314,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_12.name,
+    		id: create_if_block_18.name,
     		type: "if",
-    		source: "(101:61) ",
+    		source: "(117:61) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:61) 
-    function create_if_block_11(ctx) {
+    // (114:61) 
+    function create_if_block_17(ctx) {
     	let a;
     	let img;
 
@@ -5333,9 +5333,9 @@ var app = (function () {
     			a = element("a");
     			img = element("img");
     			attr_dev(img, "href", /*splitMatchContent*/ ctx[9][1]);
-    			add_location(img, file$b, 98, 48, 5680);
+    			add_location(img, file$b, 114, 48, 6772);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 98, 24, 5656);
+    			add_location(a, file$b, 114, 24, 6748);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5351,9 +5351,9 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_11.name,
+    		id: create_if_block_17.name,
     		type: "if",
-    		source: "(98:61) ",
+    		source: "(114:61) ",
     		ctx
     	});
 
@@ -5366,8 +5366,10 @@ var app = (function () {
 
     	function select_block_type_8(ctx, dirty) {
     		if (/*splitLink*/ ctx[10][0].startsWith('http://') || /*splitLink*/ ctx[10][0].startsWith('https://')) return create_if_block_6;
-    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_9;
-    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_10;
+    		if (/*splitLink*/ ctx[10][0].startsWith("/edit")) return create_if_block_9;
+    		if (/*splitLink*/ ctx[10][0].startsWith("/edit")) return create_if_block_12;
+    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_15;
+    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_16;
     	}
 
     	let current_block_type = select_block_type_8(ctx);
@@ -5453,8 +5455,8 @@ var app = (function () {
     	return block;
     }
 
-    // (106:63) 
-    function create_if_block_14(ctx) {
+    // (122:63) 
+    function create_if_block_20(ctx) {
     	let a;
     	let sup;
     	let t0;
@@ -5470,11 +5472,11 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 108, 162, 6542);
+    			add_location(sup, file$b, 124, 162, 7634);
     			attr_dev(a, "href", "#bottom_footnote_" + /*splitFootnote*/ ctx[11][1]);
     			attr_dev(a, "id", a_id_value = "" + (/*textFootnote*/ ctx[13][0] + "-" + (/*textFootnote*/ ctx[13][2] - /*countFootnote*/ ctx[14])));
     			attr_dev(a, "class", "footnote text_content svelte-654og0");
-    			add_location(a, file$b, 108, 28, 6408);
+    			add_location(a, file$b, 124, 28, 7500);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5495,17 +5497,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_14.name,
+    		id: create_if_block_20.name,
     		type: "if",
-    		source: "(106:63) ",
+    		source: "(122:63) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (103:24) {#if (splitFootnote.length === 1)}
-    function create_if_block_13(ctx) {
+    // (119:24) {#if (splitFootnote.length === 1)}
+    function create_if_block_19(ctx) {
     	let a;
     	let sup;
     	let t0;
@@ -5521,10 +5523,10 @@ var app = (function () {
     			t0 = text("[");
     			t1 = text(t1_value);
     			t2 = text("]");
-    			add_location(sup, file$b, 104, 104, 6119);
+    			add_location(sup, file$b, 120, 104, 7211);
     			attr_dev(a, "href", a_href_value = "#bottom_footnote_" + /*numberParagraph*/ ctx[12]);
     			attr_dev(a, "class", "footnote text_content svelte-654og0");
-    			add_location(a, file$b, 104, 28, 6043);
+    			add_location(a, file$b, 120, 28, 7135);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5547,17 +5549,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_13.name,
+    		id: create_if_block_19.name,
     		type: "if",
-    		source: "(103:24) {#if (splitFootnote.length === 1)}",
+    		source: "(119:24) {#if (splitFootnote.length === 1)}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:63) 
-    function create_if_block_10(ctx) {
+    // (108:71) 
+    function create_if_block_16(ctx) {
     	let a;
     	let t_value = /*splitLink*/ ctx[10][1] + "";
     	let t;
@@ -5568,7 +5570,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", "/w/" + /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 94, 32, 5438);
+    			add_location(a, file$b, 108, 40, 6450);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5582,17 +5584,17 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_10.name,
+    		id: create_if_block_16.name,
     		type: "if",
-    		source: "(94:63) ",
+    		source: "(108:71) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:28) {#if (splitLink.length === 1)}
-    function create_if_block_9(ctx) {
+    // (106:36) {#if (splitLink.length === 1)}
+    function create_if_block_15(ctx) {
     	let a;
     	let t_value = /*splitLink*/ ctx[10][0] + "";
     	let t;
@@ -5603,7 +5605,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(a, "href", "/w/" + /*splitLink*/ ctx[10][0]);
     			attr_dev(a, "class", "text_content svelte-654og0");
-    			add_location(a, file$b, 92, 32, 5274);
+    			add_location(a, file$b, 106, 40, 6270);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -5617,9 +5619,97 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_if_block_15.name,
+    		type: "if",
+    		source: "(106:36) {#if (splitLink.length === 1)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (99:32) {#if (splitLink[0].startsWith("/edit"))}
+    function create_if_block_12(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type_11(ctx, dirty) {
+    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_13;
+    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_14;
+    	}
+
+    	let current_block_type = select_block_type_11(ctx);
+    	let if_block = current_block_type && current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (if_block) if_block.p(ctx, dirty);
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) {
+    				if_block.d(detaching);
+    			}
+
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_12.name,
+    		type: "if",
+    		source: "(99:32) {#if (splitLink[0].startsWith(\\\"/edit\\\"))}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (92:28) {#if (splitLink[0].startsWith("/edit"))}
+    function create_if_block_9(ctx) {
+    	let if_block_anchor;
+
+    	function select_block_type_10(ctx, dirty) {
+    		if (/*splitLink*/ ctx[10].length === 1) return create_if_block_10;
+    		if (/*splitLink*/ ctx[10].length === 2) return create_if_block_11;
+    	}
+
+    	let current_block_type = select_block_type_10(ctx);
+    	let if_block = current_block_type && current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (if_block) if_block.p(ctx, dirty);
+    		},
+    		d: function destroy(detaching) {
+    			if (if_block) {
+    				if_block.d(detaching);
+    			}
+
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_if_block_9.name,
     		type: "if",
-    		source: "(92:28) {#if (splitLink.length === 1)}",
+    		source: "(92:28) {#if (splitLink[0].startsWith(\\\"/edit\\\"))}",
     		ctx
     	});
 
@@ -5664,6 +5754,146 @@ var app = (function () {
     		id: create_if_block_6.name,
     		type: "if",
     		source: "(85:24) {#if (splitLink[0].startsWith('http://') || splitLink[0].startsWith('https://'))}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (102:71) 
+    function create_if_block_14(ctx) {
+    	let a;
+    	let t_value = /*splitLink*/ ctx[10][1] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "class", "text_content svelte-654og0");
+    			add_location(a, file$b, 102, 40, 6016);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_14.name,
+    		type: "if",
+    		source: "(102:71) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (100:36) {#if (splitLink.length === 1)}
+    function create_if_block_13(ctx) {
+    	let a;
+    	let t_value = /*splitLink*/ ctx[10][0] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "class", "text_content svelte-654og0");
+    			add_location(a, file$b, 100, 40, 5839);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_13.name,
+    		type: "if",
+    		source: "(100:36) {#if (splitLink.length === 1)}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (95:67) 
+    function create_if_block_11(ctx) {
+    	let a;
+    	let t_value = /*splitLink*/ ctx[10][1] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "class", "text_content svelte-654og0");
+    			add_location(a, file$b, 95, 36, 5520);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_11.name,
+    		type: "if",
+    		source: "(95:67) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (93:32) {#if (splitLink.length === 1)}
+    function create_if_block_10(ctx) {
+    	let a;
+    	let t_value = /*splitLink*/ ctx[10][0] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			a = element("a");
+    			t = text(t_value);
+    			attr_dev(a, "href", /*splitLink*/ ctx[10][0]);
+    			attr_dev(a, "class", "text_content svelte-654og0");
+    			add_location(a, file$b, 93, 36, 5351);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, a, anchor);
+    			append_dev(a, t);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(a);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_10.name,
+    		type: "if",
+    		source: "(93:32) {#if (splitLink.length === 1)}",
     		ctx
     	});
 

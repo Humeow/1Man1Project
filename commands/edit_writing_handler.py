@@ -75,10 +75,10 @@ class classEditWriting:
 
             if hb:
                 archive_writing = HiddenArchiveWriting(
+                    real_id=writing_data.id,
                     authority=writing_data.authority,
                     option=writing_data.option,
                     category=writing_data.category,
-                    now_id=writing_data.id,
                     version=writing_data.version,
                     writer=writing_data.writer,
                     path=writing_data.path,
@@ -89,10 +89,10 @@ class classEditWriting:
 
             else:
                 archive_writing = ArchiveWriting(
+                    real_id=writing_data.id,
                     authority=writing_data.authority,
                     option=writing_data.option,
                     category=writing_data.category,
-                    now_id=writing_data.id,
                     version=writing_data.version,
                     writer=writing_data.writer,
                     path=writing_data.path,

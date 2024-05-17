@@ -90,7 +90,7 @@ no_page_access_text = {  # 만약 없는 페이지일 때 보여줄 문서
 #     return {"success": True}
 
 
-@router.post("/write/output", tags=['path', 'hb'])
+@router.post("/write/output", tags=['path', 'hb'])  # TODO: 스파게티
 async def write_output(request: Request, response: Response, path: str, hb: bool = False,
                        access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     path = path.strip()
@@ -106,7 +106,42 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
         statement = select(WritingData).where(WritingData.path == path)
         writing_data = session.exec(statement).first()
 
+        try:
+            statement = select(UserData).where(UserData.email == is_access_valid['token']['sub'])
+            user_data = session.exec(statement).first()
+        except KeyError:
+            user_data = None
+
+        if user_data is None:
+            if writing_data is None:
+                return {'success': False, 'data': ''}
+
+            else:
+                if write_auth.is_readable(min_user_auth, writing_data.authority):
+                    writing_data = writing_data.__dict__
+                    del writing_data['_sa_instance_state']
+                    return {'success': True, 'data': writing_data}
+
         if writing_data is None:
+            if hb:
+                user_auth = write_auth.getUserAuth(is_access_valid['token']['sub'])
+
+                if user_auth <= min_user_auth:
+                    statement = select(HiddenWriting).where(HiddenWriting.path == path)
+                    writing_data = session.exec(statement).first()
+
+                if writing_data is None:
+                    return {'success': False, 'data': fail_data}
+
+                if not write_auth.is_readable(user_data.authority, writing_data.authority):
+                    return {'success': False, 'data': fail_data}
+
+                writing_data = writing_data.__dict__
+                del writing_data['_sa_instance_state']
+                return {'success': True, 'data': writing_data}
+
+            else:
+                pass
             return {'success': False, 'data': fail_data}
 
         if not is_access_valid['success']:
@@ -122,9 +157,6 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
         if is_access_valid['is_refreshed']:
             response.set_cookie(key='access', value=is_access_valid['new_access'][0],
                                 expires=is_access_valid['new_access'][1])
-
-        statement = select(UserData).where(UserData.email == is_access_valid['token']['sub'])
-        user_data = session.exec(statement).first()
 
         if hb:
             user_auth = write_auth.getUserAuth(is_access_valid['token']['sub'])

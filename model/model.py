@@ -60,13 +60,17 @@ class HiddenWriting(SQLModel, table=True):
 
 
 class HiddenArchiveWriting(SQLModel, table=True):
+    __table_args__ = (
+        UniqueConstraint("path", "version", name="hiddenarchivewriting_unique"),
+    )
+
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
     authority: int  # NNN 형식, 리눅스처럼 읽기/쓰기 순으로 333(관리자,조금 강한 유저,유저).
     option: int  # 0: None, 1: 분류
     category: str
     version: int
     writer: str
-    path: str = Field(unique=True)  # ~/~/~
+    path: str  # ~/~/~
     content: str
     recent_edit: str  # recent edited date
 

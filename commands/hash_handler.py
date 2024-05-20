@@ -27,5 +27,5 @@ class hash_class:
 hasher = hash_class()
 
 if __name__ == '__main__':
-    print(hasher.hash_make('rururu0419'))
+    print(hasher.hash_make('sdfk32$@#rji23ioj@#RTl4232j#@$jnr23k3r2#%3r2jr23kuh32#@$'))
     pass

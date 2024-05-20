@@ -13,6 +13,15 @@ class UserData(SQLModel, table=True):
     age: int  # 출생 년도
 
 
+class bannedUserData(SQLModel, table=True):
+    id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
+    authority: int  # 1: 관리자 / 2: 부관리자 / 3: 일반인
+    email: Optional['str'] = Field(default=None, unique=True)
+    password: str
+    name: str
+    age: int  # 출생 년도
+
+
 class requestUserData(SQLModel, table=True):
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
     email: Optional['str'] = Field(default=None, unique=True)

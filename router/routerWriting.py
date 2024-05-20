@@ -24,13 +24,23 @@ everyone_auth = int(os.environ.get('USERAUTH_ACCESS_EVERYONE', '9999'))
 
 with open('./db/fail_text.txt', 'r') as f:
     fail_text = '\n'.join(f.readlines())
-no_page_access_text = {  # 만약 없는 페이지일 때 보여줄 문서
-    'authority': 333,
+no_page_text = {  # 만약 없는 페이지일 때 보여줄 문서
+    'authority': 2222,
     'option': 0,
     'category': '',
     'version': 0,
     'writer': '',
     'content': fail_text,
+    'recent_edit': '',
+}
+
+no_page_access_text = {  # 만약 없는 페이지일 때 보여줄 문서
+    'authority': 2222,
+    'option': 0,
+    'category': '',
+    'version': 0,
+    'writer': '',
+    'content': '접근 권한이 없습니다.',
     'recent_edit': '',
 }
 
@@ -97,7 +107,7 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
     if path == 'undefined':
         path = '웹플위키-대문'
 
-    fail_data = copy.deepcopy(no_page_access_text)
+    fail_data = copy.deepcopy(no_page_text)
     fail_data['content'] = fail_data['content'].replace('[[새문서]]', f'[[L:/edit/{path}|새 문서 작성하기]]')
 
     is_access_valid = tokenizer.validate_token(access, refresh)
@@ -114,13 +124,15 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
 
         if user_data is None:
             if writing_data is None:
-                return {'success': False, 'data': ''}
+                return {'success': False, 'data': no_page_access_text}
 
             else:
                 if write_auth.is_readable(min_user_auth, writing_data.authority):
                     writing_data = writing_data.__dict__
                     del writing_data['_sa_instance_state']
                     return {'success': True, 'data': writing_data}
+                else:
+                    return {'success': False, 'data': no_page_access_text}
 
         if writing_data is None:
             if hb:

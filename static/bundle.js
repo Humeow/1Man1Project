@@ -1,5 +1,3 @@
-
-(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
 var app = (function () {
     'use strict';
 
@@ -12700,8 +12698,8 @@ var app = (function () {
     	let div0;
     	let h1;
     	let t1;
-    	let div7;
-    	let div6;
+    	let div9;
+    	let div8;
     	let form;
     	let div2;
     	let label0;
@@ -12714,9 +12712,19 @@ var app = (function () {
     	let input1;
     	let t7;
     	let div4;
-    	let button0;
+    	let label2;
     	let t9;
+    	let input2;
+    	let t10;
     	let div5;
+    	let label3;
+    	let t12;
+    	let input3;
+    	let t13;
+    	let div6;
+    	let button0;
+    	let t15;
+    	let div7;
     	let button1;
     	let mounted;
     	let dispose;
@@ -12729,8 +12737,8 @@ var app = (function () {
     			h1 = element("h1");
     			h1.textContent = "회원가입";
     			t1 = space();
-    			div7 = element("div");
-    			div6 = element("div");
+    			div9 = element("div");
+    			div8 = element("div");
     			form = element("form");
     			div2 = element("div");
     			label0 = element("label");
@@ -12740,66 +12748,96 @@ var app = (function () {
     			t4 = space();
     			div3 = element("div");
     			label1 = element("label");
-    			label1.textContent = "인증코드";
+    			label1.textContent = "비밀번호";
     			t6 = space();
     			input1 = element("input");
     			t7 = space();
     			div4 = element("div");
+    			label2 = element("label");
+    			label2.textContent = "이메일";
+    			t9 = space();
+    			input2 = element("input");
+    			t10 = space();
+    			div5 = element("div");
+    			label3 = element("label");
+    			label3.textContent = "인증코드";
+    			t12 = space();
+    			input3 = element("input");
+    			t13 = space();
+    			div6 = element("div");
     			button0 = element("button");
     			button0.textContent = "인증코드 발송";
-    			t9 = space();
-    			div5 = element("div");
+    			t15 = space();
+    			div7 = element("div");
     			button1 = element("button");
     			button1.textContent = "회원가입";
     			attr_dev(h1, "id", "Login_Text");
     			attr_dev(h1, "class", "svelte-2j7fk1");
-    			add_location(h1, file$2, 63, 12, 1539);
+    			add_location(h1, file$2, 42, 12, 1008);
     			attr_dev(div0, "id", "Login_Title_2");
     			attr_dev(div0, "class", "svelte-2j7fk1");
-    			add_location(div0, file$2, 62, 8, 1502);
+    			add_location(div0, file$2, 41, 8, 971);
     			attr_dev(div1, "id", "Login_Title");
     			attr_dev(div1, "class", "svelte-2j7fk1");
-    			add_location(div1, file$2, 61, 4, 1471);
+    			add_location(div1, file$2, 40, 4, 940);
     			attr_dev(label0, "for", "emailInput");
     			attr_dev(label0, "class", "svelte-2j7fk1");
-    			add_location(label0, file$2, 70, 20, 1767);
+    			add_location(label0, file$2, 49, 20, 1236);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "id", "emailInput");
     			attr_dev(input0, "name", "email");
-    			add_location(input0, file$2, 71, 20, 1823);
+    			add_location(input0, file$2, 50, 20, 1292);
     			attr_dev(div2, "class", "emailBox");
-    			add_location(div2, file$2, 69, 16, 1724);
-    			attr_dev(label1, "for", "emailInput");
+    			add_location(div2, file$2, 48, 16, 1193);
+    			attr_dev(label1, "for", "pwInput");
     			attr_dev(label1, "class", "svelte-2j7fk1");
-    			add_location(label1, file$2, 74, 20, 1976);
+    			add_location(label1, file$2, 53, 20, 1442);
     			attr_dev(input1, "type", "password");
-    			attr_dev(input1, "id", "authcodeInput");
-    			attr_dev(input1, "name", "authcode");
-    			add_location(input1, file$2, 75, 20, 2033);
-    			attr_dev(div3, "class", "authcodeBox");
-    			add_location(div3, file$2, 73, 16, 1930);
+    			attr_dev(input1, "id", "pwInput");
+    			attr_dev(input1, "name", "password");
+    			add_location(input1, file$2, 54, 20, 1496);
+    			attr_dev(div3, "class", "emailBox");
+    			add_location(div3, file$2, 52, 16, 1399);
+    			attr_dev(label2, "for", "emailInput");
+    			attr_dev(label2, "class", "svelte-2j7fk1");
+    			add_location(label2, file$2, 57, 20, 1648);
+    			attr_dev(input2, "type", "text");
+    			attr_dev(input2, "id", "emailInput");
+    			attr_dev(input2, "name", "email");
+    			add_location(input2, file$2, 58, 20, 1704);
+    			attr_dev(div4, "class", "nameBox");
+    			add_location(div4, file$2, 56, 16, 1606);
+    			attr_dev(label3, "for", "emailInput");
+    			attr_dev(label3, "class", "svelte-2j7fk1");
+    			add_location(label3, file$2, 61, 20, 1857);
+    			attr_dev(input3, "type", "password");
+    			attr_dev(input3, "id", "authcodeInput");
+    			attr_dev(input3, "name", "authcode");
+    			add_location(input3, file$2, 62, 20, 1914);
+    			attr_dev(div5, "class", "authcodeBox");
+    			add_location(div5, file$2, 60, 16, 1811);
     			attr_dev(button0, "id", "CheckButton");
     			attr_dev(button0, "type", "submit");
     			attr_dev(button0, "class", "svelte-2j7fk1");
-    			add_location(button0, file$2, 78, 20, 2194);
-    			attr_dev(div4, "id", "buttonBox");
-    			attr_dev(div4, "class", "svelte-2j7fk1");
-    			add_location(div4, file$2, 77, 16, 2153);
+    			add_location(button0, file$2, 65, 20, 2075);
+    			attr_dev(div6, "id", "buttonBox");
+    			attr_dev(div6, "class", "svelte-2j7fk1");
+    			add_location(div6, file$2, 64, 16, 2034);
     			attr_dev(button1, "id", "LoginButton");
     			attr_dev(button1, "type", "submit");
     			attr_dev(button1, "class", "svelte-2j7fk1");
-    			add_location(button1, file$2, 81, 20, 2330);
-    			attr_dev(div5, "id", "buttonBox");
-    			attr_dev(div5, "class", "svelte-2j7fk1");
-    			add_location(div5, file$2, 80, 16, 2289);
+    			add_location(button1, file$2, 68, 20, 2211);
+    			attr_dev(div7, "id", "buttonBox");
+    			attr_dev(div7, "class", "svelte-2j7fk1");
+    			add_location(div7, file$2, 67, 16, 2170);
     			attr_dev(form, "method", "post");
     			attr_dev(form, "id", "LoginForm");
     			attr_dev(form, "class", "svelte-2j7fk1");
-    			add_location(form, file$2, 68, 12, 1631);
-    			add_location(div6, file$2, 67, 8, 1613);
-    			add_location(div7, file$2, 66, 4, 1599);
+    			add_location(form, file$2, 47, 12, 1100);
+    			add_location(div8, file$2, 46, 8, 1082);
+    			add_location(div9, file$2, 45, 4, 1068);
     			attr_dev(article, "class", "svelte-2j7fk1");
-    			add_location(article, file$2, 60, 0, 1457);
+    			add_location(article, file$2, 39, 0, 926);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12810,9 +12848,9 @@ var app = (function () {
     			append_dev(div1, div0);
     			append_dev(div0, h1);
     			append_dev(article, t1);
-    			append_dev(article, div7);
-    			append_dev(div7, div6);
-    			append_dev(div6, form);
+    			append_dev(article, div9);
+    			append_dev(div9, div8);
+    			append_dev(div8, form);
     			append_dev(form, div2);
     			append_dev(div2, label0);
     			append_dev(div2, t3);
@@ -12823,19 +12861,33 @@ var app = (function () {
     			append_dev(div3, label1);
     			append_dev(div3, t6);
     			append_dev(div3, input1);
-    			set_input_value(input1, /*authcode*/ ctx[1]);
+    			set_input_value(input1, /*name*/ ctx[1]);
     			append_dev(form, t7);
     			append_dev(form, div4);
-    			append_dev(div4, button0);
-    			append_dev(form, t9);
+    			append_dev(div4, label2);
+    			append_dev(div4, t9);
+    			append_dev(div4, input2);
+    			set_input_value(input2, /*birth*/ ctx[2]);
+    			append_dev(form, t10);
     			append_dev(form, div5);
-    			append_dev(div5, button1);
+    			append_dev(div5, label3);
+    			append_dev(div5, t12);
+    			append_dev(div5, input3);
+    			set_input_value(input3, /*authcode*/ ctx[3]);
+    			append_dev(form, t13);
+    			append_dev(form, div6);
+    			append_dev(div6, button0);
+    			append_dev(form, t15);
+    			append_dev(form, div7);
+    			append_dev(div7, button1);
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[3]),
-    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[4]),
-    					listen_dev(form, "submit", prevent_default(/*postEmailAuth*/ ctx[2]), false, true, false, false)
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[5]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[6]),
+    					listen_dev(input2, "input", /*input2_input_handler*/ ctx[7]),
+    					listen_dev(input3, "input", /*input3_input_handler*/ ctx[8]),
+    					listen_dev(form, "submit", prevent_default(/*postEmailAuth*/ ctx[4]), false, true, false, false)
     				];
 
     				mounted = true;
@@ -12846,8 +12898,16 @@ var app = (function () {
     				set_input_value(input0, /*email*/ ctx[0]);
     			}
 
-    			if (dirty & /*authcode*/ 2 && input1.value !== /*authcode*/ ctx[1]) {
-    				set_input_value(input1, /*authcode*/ ctx[1]);
+    			if (dirty & /*name*/ 2 && input1.value !== /*name*/ ctx[1]) {
+    				set_input_value(input1, /*name*/ ctx[1]);
+    			}
+
+    			if (dirty & /*birth*/ 4 && input2.value !== /*birth*/ ctx[2]) {
+    				set_input_value(input2, /*birth*/ ctx[2]);
+    			}
+
+    			if (dirty & /*authcode*/ 8 && input3.value !== /*authcode*/ ctx[3]) {
+    				set_input_value(input3, /*authcode*/ ctx[3]);
     			}
     		},
     		i: noop,
@@ -12874,7 +12934,10 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Account_Content', slots, []);
     	let email = '';
+    	let name = '';
+    	let birth = '';
     	let authcode = '';
+    	let isMailSent = false;
 
     	async function postEmailAuth() {
     		const user = { email };
@@ -12901,26 +12964,6 @@ var app = (function () {
     		});
     	}
 
-    	async function post_form() {
-    		const user = { email };
-
-    		await fetch("/login", {
-    			method: "POST",
-    			headers: { 'Content-Type': 'application/json' },
-    			body: JSON.stringify(user)
-    		}).then(response => {
-    			response.json().then(j => {
-    				if (j.success) {
-    					window.location.href = "/";
-    				} else {
-    					alert('인증코드가 올바르지 않습니다!');
-    				}
-    			});
-    		}).catch(error => {
-    			console.log('error');
-    		});
-    	}
-
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -12933,27 +12976,52 @@ var app = (function () {
     	}
 
     	function input1_input_handler() {
+    		name = this.value;
+    		$$invalidate(1, name);
+    	}
+
+    	function input2_input_handler() {
+    		birth = this.value;
+    		$$invalidate(2, birth);
+    	}
+
+    	function input3_input_handler() {
     		authcode = this.value;
-    		$$invalidate(1, authcode);
+    		$$invalidate(3, authcode);
     	}
 
     	$$self.$capture_state = () => ({
     		email,
+    		name,
+    		birth,
     		authcode,
-    		postEmailAuth,
-    		post_form
+    		isMailSent,
+    		postEmailAuth
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('email' in $$props) $$invalidate(0, email = $$props.email);
-    		if ('authcode' in $$props) $$invalidate(1, authcode = $$props.authcode);
+    		if ('name' in $$props) $$invalidate(1, name = $$props.name);
+    		if ('birth' in $$props) $$invalidate(2, birth = $$props.birth);
+    		if ('authcode' in $$props) $$invalidate(3, authcode = $$props.authcode);
+    		if ('isMailSent' in $$props) isMailSent = $$props.isMailSent;
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [email, authcode, postEmailAuth, input0_input_handler, input1_input_handler];
+    	return [
+    		email,
+    		name,
+    		birth,
+    		authcode,
+    		postEmailAuth,
+    		input0_input_handler,
+    		input1_input_handler,
+    		input2_input_handler,
+    		input3_input_handler
+    	];
     }
 
     class Account_Content extends SvelteComponentDev {

@@ -90,7 +90,6 @@ class classEditWriting:
             else:
                 archive_writing = ArchiveWriting(
                     real_id=writing_data.id,
-                    now_id=,
                     authority=writing_data.authority,
                     option=writing_data.option,
                     category=writing_data.category,

@@ -8859,47 +8859,48 @@ var app = (function () {
     const file$a = "src/components/UpperLink.svelte";
 
     function create_fragment$a(ctx) {
-    	let div1;
-    	let div0;
+    	let div;
+    	let span;
     	let t1;
     	let a;
     	let t2;
+    	let a_href_value;
 
     	const block = {
     		c: function create() {
-    			div1 = element("div");
-    			div0 = element("div");
-    			div0.textContent = "상위 문서:";
+    			div = element("div");
+    			span = element("span");
+    			span.textContent = "상위 문서:";
     			t1 = space();
     			a = element("a");
     			t2 = text(/*textUpper*/ ctx[0]);
-    			add_location(div0, file$a, 5, 4, 80);
-    			attr_dev(a, "href", /*textUpper*/ ctx[0]);
-    			add_location(a, file$a, 5, 22, 98);
-    			attr_dev(div1, "class", "upper_link svelte-uphhwx");
-    			add_location(div1, file$a, 4, 0, 51);
+    			add_location(span, file$a, 5, 4, 80);
+    			attr_dev(a, "href", a_href_value = "/w/" + /*textUpper*/ ctx[0]);
+    			add_location(a, file$a, 5, 24, 100);
+    			attr_dev(div, "class", "upper_link svelte-uphhwx");
+    			add_location(div, file$a, 4, 0, 51);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, div0);
-    			append_dev(div1, t1);
-    			append_dev(div1, a);
+    			insert_dev(target, div, anchor);
+    			append_dev(div, span);
+    			append_dev(div, t1);
+    			append_dev(div, a);
     			append_dev(a, t2);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*textUpper*/ 1) set_data_dev(t2, /*textUpper*/ ctx[0]);
 
-    			if (dirty & /*textUpper*/ 1) {
-    				attr_dev(a, "href", /*textUpper*/ ctx[0]);
+    			if (dirty & /*textUpper*/ 1 && a_href_value !== (a_href_value = "/w/" + /*textUpper*/ ctx[0])) {
+    				attr_dev(a, "href", a_href_value);
     			}
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(div);
     		}
     	};
 
@@ -9070,7 +9071,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-51l9cx");
-    			add_location(div, file$9, 53, 2, 1438);
+    			add_location(div, file$9, 53, 2, 1462);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9899,7 +9900,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-51l9cx");
-    			add_location(div, file$9, 62, 4, 1683);
+    			add_location(div, file$9, 62, 4, 1707);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9931,7 +9932,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			attr_dev(div, "class", "svelte-51l9cx");
-    			add_location(div, file$9, 59, 3, 1615);
+    			add_location(div, file$9, 59, 3, 1639);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10003,11 +10004,11 @@ var app = (function () {
     			button = element("button");
     			attr_dev(div, "id", "contents");
     			attr_dev(div, "class", "svelte-51l9cx");
-    			add_location(div, file$9, 57, 1, 1562);
+    			add_location(div, file$9, 57, 1, 1586);
     			attr_dev(button, "class", "svelte-51l9cx");
-    			add_location(button, file$9, 95, 1, 2834);
+    			add_location(button, file$9, 95, 1, 2858);
     			attr_dev(main, "class", "svelte-51l9cx");
-    			add_location(main, file$9, 51, 0, 1401);
+    			add_location(main, file$9, 51, 0, 1425);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -10122,7 +10123,7 @@ var app = (function () {
     	let boolTextUpper = false;
 
     	if (listTextUpper.length >= 1) {
-    		textUpper = listTextUpper.slice(1).join("/");
+    		textUpper = listTextUpper.slice(0, listTextUpper.length - 1).join("/");
     		boolTextUpper = true;
     	}
 

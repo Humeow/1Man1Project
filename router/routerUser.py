@@ -90,10 +90,43 @@ async def user_logout(request: Request, response: Response):
     return {'success': True}
 
 
-@router.post("/register_request")  # needs op's allowance
-async def user_register_code(request: Request, response: Response, email: str):
+@router.post("/email_auth", tags=['email'])  # needs op's allowance
+async def user_register_code(request: Request, response: Response, user: UserData):
+    email = user.email
     request_id = await mail_author.request(email)
-    return request_id
+    response.set_cookie(key='reqID', value=request_id, expires=300)
+    return {'success': True}
+
+
+class requestAuth(SQLModel, table=False):
+    email: str
+    request_id: int
+    auth_key: int
+
+@router.post("/register_request")
+async def register_request(request: Request, response: Response, request_id: int, auth_key: int,
+                        user_data: requestUserData):
+    result = await mail_author.auth(request_id, auth_key)
+
+    if not result['success']:
+        return result
+
+    user_data.password = hasher.hash_make(user_data.password)
+
+    insert_user_data = requestUserData(
+        authority=3,
+        email=result['data'].email,
+        password=user_data.password,
+        name=user_data.name,
+        age=user_data.age,
+    )
+
+    with Session(engine) as session:
+        session.add(insert_user_data)
+        session.commit()
+        session.refresh(insert_user_data)
+
+    return {"success": True}
 
 
 @router.post("/register")

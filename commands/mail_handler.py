@@ -26,6 +26,8 @@ class Mail:  # 메일 전송 클래스
         self.mail = os.environ.get("MAILNAME")
         self.pwd = os.environ.get("MAILPWD")
 
+        print(self.mail, self.pwd)
+
         self.smtp = smtplib.SMTP('smtp.gmail.com', 587)  # smtp를 이용해서 로그인
         self.smtp.ehlo()
         self.smtp.starttls()

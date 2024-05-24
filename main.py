@@ -78,6 +78,10 @@ def login(request: Request):
 def history(request: Request):
     return templates.TemplateResponse("history.html", context={"request": request})
 
+@app.get("/register", response_class=HTMLResponse)
+def history(request: Request):
+    return templates.TemplateResponse("register.html", context={"request": request})
+
 #===== router sync start =====#
 for file in os.listdir("./router"):
     if len(file) >= 4:

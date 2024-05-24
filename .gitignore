@@ -13,3 +13,5 @@
 .env
 
 /static/bundle.js.map
+
+/forFun

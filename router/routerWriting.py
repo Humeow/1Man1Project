@@ -135,25 +135,6 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
                     return {'success': False, 'data': no_page_access_text}
 
         if writing_data is None:
-            if hb:
-                user_auth = write_auth.getUserAuth(is_access_valid['token']['sub'])
-
-                if user_auth <= min_user_auth:
-                    statement = select(HiddenWriting).where(HiddenWriting.path == path)
-                    writing_data = session.exec(statement).first()
-
-                if writing_data is None:
-                    return {'success': False, 'data': fail_data}
-
-                if not write_auth.is_readable(user_data.authority, writing_data.authority):
-                    return {'success': False, 'data': fail_data}
-
-                writing_data = writing_data.__dict__
-                del writing_data['_sa_instance_state']
-                return {'success': True, 'data': writing_data}
-
-            else:
-                pass
             return {'success': False, 'data': fail_data}
 
         if not is_access_valid['success']:
@@ -170,18 +151,6 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
             response.set_cookie(key='access', value=is_access_valid['new_access'][0],
                                 expires=is_access_valid['new_access'][1])
 
-        if hb:
-            user_auth = write_auth.getUserAuth(is_access_valid['token']['sub'])
-
-            if user_auth <= min_user_auth:
-                statement = select(HiddenWriting).where(HiddenWriting.path == path)
-                writing_data = session.exec(statement).first()
-            else:
-                pass
-
-        else:
-            pass
-
         if writing_data is None:
             return {'success': False, 'data': fail_data}
 
@@ -196,7 +165,7 @@ async def write_output(request: Request, response: Response, path: str, hb: bool
 
 
 @router.post("/write/edit_archive")
-async def write_edit_archive(request: Request, response: Response, edit_writing: ArchiveWriting, hb: bool = False,
+async def write_edit_archive(request: Request, response: Response, edit_writing: ArchiveWriting,
                              access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     """
     :param edit_writing: content, message
@@ -217,7 +186,7 @@ async def write_edit_archive(request: Request, response: Response, edit_writing:
 
     user_data = UserData(email=is_access_valid['token']['sub'])
 
-    result = await writingEdit.edit_with_archive(writing_data, user_data, edit_writing.message, hb)
+    result = await writingEdit.edit_with_archive(writing_data, user_data, edit_writing.message)
 
     if result['success']:
         return {'success': True}
@@ -241,7 +210,7 @@ async def write_is_exist(request: Request, path: str):
 
 
 @router.post("/write/history")  # TODO: 여유 있으면..
-async def write_history(request: Request, response: Response, path: str, hb: bool = False,
+async def write_history(request: Request, response: Response, path: str,
                        access: Optional[str] = Cookie(None), refresh: Optional[str] = Cookie(None)):
     path = path.strip()
     if path == 'undefined':
@@ -261,12 +230,8 @@ async def write_history(request: Request, response: Response, path: str, hb: boo
         statement = select(UserData).where(UserData.email == is_access_valid['token']['sub'])
         user_data = session.exec(statement).first()
 
-        if hb:
-            statement = select(HiddenArchiveWriting).where(HiddenArchiveWriting.path == path)
-            writing_datas = session.exec(statement)
-        else:
-            statement = select(ArchiveWriting).where(ArchiveWriting.path == path)
-            writing_datas = session.exec(statement)
+        statement = select(ArchiveWriting).where(ArchiveWriting.path == path)
+        writing_datas = session.exec(statement)
 
         userauth = user_data.authority
         for writing_data in writing_datas:

@@ -44,11 +44,10 @@ class WritingData(SQLModel, table=True):
 
 class ArchiveWriting(SQLModel, table=True):  # 아직 미구현
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
-    real_id: int
+    real_id: int  # 연결될 글의 아이디 ( 현재 존재하는 글 id )
     authority: int
     category: str
     option: int  # 0: None, 1: 분류
-    now_id: int  # 연결될 글의 아이디 ( 현재 존재하는 글 id )
     version: int
     writer: str
     path: str
@@ -57,7 +56,7 @@ class ArchiveWriting(SQLModel, table=True):  # 아직 미구현
     message: str
 
 
-class HiddenWriting(SQLModel, table=True):
+class HiddenWriting(SQLModel, table=False):
     id: Optional['int'] = Field(default=None, primary_key=True, unique=True)
     authority: int  # NNN 형식, 리눅스처럼 읽기/쓰기 순으로 333(관리자,조금 강한 유저,유저).
     option: int  # 0: None, 1: 분류
@@ -69,7 +68,7 @@ class HiddenWriting(SQLModel, table=True):
     recent_edit: str  # recent edited date
 
 
-class HiddenArchiveWriting(SQLModel, table=True):
+class HiddenArchiveWriting(SQLModel, table=False):
     __table_args__ = (
         UniqueConstraint("path", "version", name="hiddenarchivewriting_unique"),
     )
